@@ -9,5 +9,6 @@ export default defineConfig({
       '@': '/src', // L'alias @ pointe vers le dossier src
     },
   },
-  assetsInclude: ['**/*.PNG'], // Doit être placé ici et non dans resolve
+  assetsInclude: ['**/*.PNG'],
+  base: '/' // Met ici ton repo GitHub Pages
 })
