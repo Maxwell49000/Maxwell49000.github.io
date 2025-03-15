@@ -21,6 +21,8 @@
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden; /* Évite le débordement */
+  box-sizing: border-box; /* Assure que la largeur inclut padding et border */
 }
 
 .about:hover {
@@ -33,6 +35,7 @@
   font-weight: bold;
   color: #343a40;
   margin-bottom: 1.5rem;
+  word-wrap: break-word; /* Assure que le texte ne dépasse pas */
 }
 
 .about p {
@@ -41,6 +44,8 @@
   color: #495057;
   margin-bottom: 1.2rem;
   text-align: justify;
+  word-wrap: break-word; /* Évite que le texte dépasse */
+  overflow-wrap: break-word;
 }
 
 /* Ajustement pour petits écrans */
@@ -48,6 +53,7 @@
   .about {
     width: 95%;
     padding: 2rem;
+    overflow: hidden; /* Évite le débordement */
   }
 
   .about h2 {
@@ -56,6 +62,8 @@
 
   .about p {
     font-size: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 </style>

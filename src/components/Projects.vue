@@ -71,6 +71,14 @@ const projects = [
 </script>
 
 <style scoped>
+/* Empêcher le débordement horizontal */
+html, body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Centrage + suppression du scroll horizontal */
 .projects {
   width: 90%;
   max-width: 1200px;
@@ -81,27 +89,19 @@ const projects = [
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
-.projects h2 {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #343a40;
-  margin-bottom: 1.5rem;
-}
-
-.projects p {
-  font-size: 1.2rem;
-  color: #495057;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
+/* Ajustement de la grille */
 .project-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 /* Style des liens de projet */
@@ -109,10 +109,10 @@ const projects = [
   text-decoration: none;
   color: inherit;
   display: block;
-  height: 100%;
+  width: 100%;
 }
 
-/* Style des cartes de projet */
+/* Style des cartes */
 .project-card {
   background: white;
   padding: 1.5rem;
@@ -122,8 +122,9 @@ const projects = [
   transition: transform 0.3s ease-in-out;
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: 100%;
   width: 100%;
+  max-width: 100%;
 }
 
 .project-card-link:hover .project-card {
@@ -152,7 +153,7 @@ const projects = [
   color: #343a40;
 }
 
-/* Description du projet */
+/* Description */
 .project-description {
   flex-grow: 1;
   margin-bottom: 1rem;
@@ -216,7 +217,6 @@ const projects = [
   }
   
   .project-card {
-    height: 450px;
     padding: 1rem;
   }
   

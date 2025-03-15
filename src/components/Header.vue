@@ -25,23 +25,19 @@
 <script setup>
 import { defineEmits, defineProps } from 'vue';
 
-// On reçoit la prop pour savoir si le mode sombre est activé
 const emit = defineEmits(['toggle-dark-mode']);
 const props = defineProps({
-  isDarkMode: Boolean,  // On reçoit l'état du mode sombre depuis le parent
+  isDarkMode: Boolean,
 });
 
-// Fonction pour changer le mode sombre
 const toggleDarkMode = () => {
   emit('toggle-dark-mode');
 };
 </script>
 
-
-
 <style scoped>
 header {
-  background-color: #333; /* Gris foncé pour la cohérence */
+  background-color: #333;
   padding: 1rem 2rem;
   font-family: 'Roboto', sans-serif;
   color: #fff;
@@ -52,13 +48,16 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+  overflow: hidden;
 }
 
 .logo h1 {
   font-size: 2rem;
-  color: #007bff; /* Bleu discret */
+  color: #007bff;
   margin: 0;
 }
 
@@ -67,10 +66,14 @@ nav ul {
   list-style: none;
   gap: 1.5rem;
   margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow: hidden;
 }
 
 nav ul li a {
-  color: #bbb; /* Couleur neutre */
+  color: #bbb;
   font-size: 1rem;
   text-decoration: none;
   transition: color 0.3s, border-bottom 0.3s;
@@ -78,34 +81,26 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #007bff; /* Transition douce vers le bleu */
-  border-bottom: 2px solid #007bff; /* Légère ligne sous le lien pour plus de clarté */
+  color: #007bff;
+  border-bottom: 2px solid #007bff;
 }
 
+@media screen and (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Styles par défaut pour le mode clair */
-body {
-  background-color: #fff;
-  color: #333;
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dark-mode-toggle {
+    margin-top: 10px;
+  }
 }
 
-header {
-  background-color: #f7f9fc;
-}
-
-footer {
-  background-color: #222;
-  color: #fff;
-}
-
-footer a {
-  color: #bbb;
-}
-
-footer a:hover {
-  color: #00aaff;
-}
-/* Styles du bouton de changement de mode sombre */
 .dark-mode-toggle {
   background: none;
   border: none;
@@ -113,7 +108,4 @@ footer a:hover {
   font-size: 1.5rem;
   cursor: pointer;
 }
-
 </style>
-
-

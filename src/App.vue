@@ -44,6 +44,7 @@ onMounted(() => {
 body {
   background-color: #fff;
   color: #333;
+  overflow-x: hidden;
 }
 
 header {

@@ -1,41 +1,47 @@
 <template>
-  <section class="contact" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
+  <section class="contact" data-aos="fade-up" data-aos-duration="1000">
     <h2>Contactez-moi</h2>
     <p>Vous souhaitez échanger ? Contactez-moi par e-mail, téléphone ou via mes réseaux.</p>
 
     <div class="contact-details">
       <div 
         class="detail-item" 
-        v-for="(contact, index) in contacts" 
-        :key="index" 
+        v-for="contact in contacts" 
+        :key="contact.text"
         data-aos="fade-up"
-        :data-aos-delay="200 + (index * 100)"
+        :data-aos-delay="contact.delay"
       >
         <div class="icon-container">
           <i :class="contact.icon"></i>
         </div>
-        <a :href="contact.link" target="_blank">{{ contact.text }}</a>
+        <a :href="contact.link" target="_blank" rel="noopener noreferrer">{{ contact.text }}</a>
       </div>
     </div>
 
-    <a href="/Cv.pdf" download class="cv-button" data-aos="fade-up" data-aos-delay="600">
+    <a :href="cvPath" download class="cv-button" data-aos="fade-up" data-aos-delay="600">
       <i class="fas fa-download"></i> Télécharger mon CV
     </a>
   </section>
 </template>
 
 <script setup>
-const contacts = [
-  { icon: "fas fa-envelope", link: "mailto:axel.paillard.12@gmail.com", text: "axel.paillard.12@gmail.com" },
-  { icon: "fas fa-phone-alt", link: "tel:+33782675057", text: "07 82 67 50 57" },
-  { icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/axel-paillard-74922b253/", text: "LinkedIn" },
-  { icon: "fab fa-github", link: "https://github.com/Maxwell49000", text: "GitHub" }
-];
+import { ref } from 'vue';
+
+// Définition des contacts
+const contacts = ref([
+  { icon: "fas fa-envelope", link: "mailto:axel.paillard.12@gmail.com", text: "axel.paillard.12@gmail.com", delay: 200 },
+  { icon: "fas fa-phone-alt", link: "tel:+33782675057", text: "07 82 67 50 57", delay: 300 },
+  { icon: "fab fa-linkedin", link: "https://www.linkedin.com/in/axel-paillard-74922b253/", text: "LinkedIn", delay: 400 },
+  { icon: "fab fa-github", link: "https://github.com/Maxwell49000", text: "GitHub", delay: 500 }
+]);
+
+// Définition du chemin du CV
+const cvPath = ref("/Cv.pdf");
 </script>
 
 <style scoped>
 .contact {
-  width: 90%;
+  width: 100%;
   max-width: 1200px;
   margin: 4rem auto;
   padding: 3rem 5%;
@@ -44,7 +50,9 @@ const contacts = [
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Assure-toi que le padding est inclus dans la largeur */
 }
+
 
 .contact:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
