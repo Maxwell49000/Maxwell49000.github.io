@@ -2,6 +2,7 @@
   <div :class="{ 'dark-mode': darkMode }">
     <Header :isDarkMode="darkMode" @toggle-dark-mode="toggleDarkMode" />
     <About id="about" />
+    <Skills id="skills" />
     <Projects id="projects" />
     <Contact id="contact" />
     <Footer />
@@ -13,6 +14,7 @@
 import { ref, onMounted } from 'vue';
 import Header from './components/Header.vue';
 import About from './components/About.vue';
+import Skills from './components/Skills.vue';
 import Projects from './components/Projects.vue';
 import Contact from './components/Contact.vue';
 import Footer from './components/Footer.vue';
@@ -82,7 +84,7 @@ body.dark-mode a:hover {
 /* Appliquer le style aux sections */
 .dark-mode section {
   background-color: #252525 !important;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 8px;
 }
 
