@@ -81,14 +81,12 @@ body.dark-mode a {
 body.dark-mode a:hover {
   color: #00aaff;
 }
-/* Appliquer le style aux sections */
+
 .dark-mode section {
   background-color: #252525 !important;
-  /* padding: 20px; */
   border-radius: 8px;
 }
 
-/* Navigation et footer */
 .dark-mode header, 
 .dark-mode footer {
   background-color: #222 !important;
@@ -106,7 +104,6 @@ body.dark-mode a:hover {
   color:black;
 }
 
-/* Liens en mode sombre */
 .dark-mode a {
   color: #fff;
 }
@@ -115,7 +112,6 @@ body.dark-mode a:hover {
   color: #00aaff;
 }
 
-/* Mode sombre */
 .dark-mode .projects {
   background-color: #1e1e1e;
   color: white;
@@ -156,7 +152,6 @@ body.dark-mode a:hover {
   background: #0056b3;
 }
 
-/* Mode sombre global */
 .dark-mode {
   background-color: #121212;
   color: white;
@@ -318,7 +313,4 @@ body.dark-mode a:hover {
 .dark-mode .dark-mode-toggle:hover {
   color: #00aaff;
 }
-
-
-
 </style>

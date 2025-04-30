@@ -71,14 +71,13 @@ const projects = [
 </script>
 
 <style scoped>
-/* Empêcher le débordement horizontal */
+
 html, body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
 }
 
-/* Centrage + suppression du scroll horizontal */
 .projects {
   width: 90%;
   max-width: 1200px;
@@ -92,7 +91,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Ajustement de la grille */
 .project-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -104,7 +102,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Style des liens de projet */
 .project-card-link {
   text-decoration: none;
   color: inherit;
@@ -112,7 +109,6 @@ html, body {
   width: 100%;
 }
 
-/* Style des cartes */
 .project-card {
   background: white;
   padding: 1.5rem;
@@ -131,7 +127,6 @@ html, body {
   transform: translateY(-5px);
 }
 
-/* Conteneur d'image */
 .project-img-container {
   width: 100%;
   height: 180px;
@@ -146,14 +141,12 @@ html, body {
   object-fit: cover;
 }
 
-/* Titre du projet */
 .project-card h3 {
   font-size: 1.5rem;
   margin: 0.5rem 0;
   color: #343a40;
 }
 
-/* Description */
 .project-description {
   flex-grow: 1;
   margin-bottom: 1rem;
@@ -168,7 +161,6 @@ html, body {
   margin: 0;
 }
 
-/* Technologies */
 .technologies {
   display: flex;
   flex-wrap: wrap;
@@ -185,7 +177,6 @@ html, body {
   font-size: 0.9rem;
 }
 
-/* Lien du projet */
 .project-link {
   padding: 0.5rem 1rem;
   background: #007bff;
@@ -201,7 +192,6 @@ html, body {
   background: #0056b3;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .projects {
     width: 95%;

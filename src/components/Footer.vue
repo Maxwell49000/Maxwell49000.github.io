@@ -30,11 +30,7 @@
       <p>&copy; 2025 Axel Paillard - Tous droits réservés</p>
     </div>
   </footer>
-
 </template>
-
-<script setup>
-</script>
 
 <style scoped>
 footer {
@@ -59,7 +55,6 @@ footer {
 .footer-info h3 {
   font-size: 1.6rem;
   color: #007bff;
-  /* Bleu plus discret */
   margin-bottom: 1rem;
 }
 
@@ -97,7 +92,6 @@ footer {
 
 .footer-links a:hover {
   color: #007bff;
-  /* Transition douce vers le bleu */
 }
 
 .footer-socials {
@@ -124,8 +118,7 @@ footer {
 
 .social-icons a:hover {
   color: #007bff;
-  /* Transition douce vers le bleu */
-}
+  }
 
 .footer-bottom {
   text-align: center;

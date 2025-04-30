@@ -50,9 +50,8 @@ const cvPath = ref("/Cv.pdf");
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-sizing: border-box; /* Assure-toi que le padding est inclus dans la largeur */
+  box-sizing: border-box;
 }
-
 
 .contact:hover {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -152,7 +151,6 @@ const cvPath = ref("/Cv.pdf");
   color: #007bff;
 }
 
-/* Style du bouton de téléchargement */
 .cv-button {
   margin-top: 2rem;
   display: inline-flex;

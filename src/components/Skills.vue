@@ -179,8 +179,8 @@ const productivity = [
   }
 
   .skill-item:hover .skill-name {
-  color: #007bff; /* Exemple de couleur lors du survol (bleu) */
-  transform: scale(1.1); /* Agrandit légèrement le texte */
+  color: #007bff;
+  transform: scale(1.1);
 }
   
   .dark-mode .skills {

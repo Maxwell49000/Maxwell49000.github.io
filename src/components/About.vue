@@ -11,8 +11,8 @@
 
 <style scoped>
 .about {
-  width: 90%; /* Prend presque toute la largeur */
-  max-width: 1200px; /* Évite qu'il soit trop large sur les grands écrans */
+  width: 90%;
+  max-width: 1200px;
   margin: 4rem auto;
   padding: 3rem 5%;
   background-color: #f8f9fa;
@@ -21,8 +21,8 @@
   text-align: center;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
   font-family: 'Roboto', sans-serif;
-  overflow: hidden; /* Évite le débordement */
-  box-sizing: border-box; /* Assure que la largeur inclut padding et border */
+  overflow: hidden;
+  box-sizing: border-box;
 }
 
 .about:hover {
@@ -35,7 +35,7 @@
   font-weight: bold;
   color: #343a40;
   margin-bottom: 1.5rem;
-  word-wrap: break-word; /* Assure que le texte ne dépasse pas */
+  word-wrap: break-word;
 }
 
 .about p {
@@ -44,7 +44,7 @@
   color: #495057;
   margin-bottom: 1.2rem;
   text-align: justify;
-  word-wrap: break-word; /* Évite que le texte dépasse */
+  word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
@@ -53,7 +53,7 @@
   .about {
     width: 95%;
     padding: 2rem;
-    overflow: hidden; /* Évite le débordement */
+    overflow: hidden;
   }
 
   .about h2 {
