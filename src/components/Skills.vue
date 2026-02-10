@@ -72,7 +72,13 @@
   import gitHubLogo from '@/assets/logos/github.svg';
   import npmLogo from '@/assets/logos/npm.svg';
   import figmaLogo from '@/assets/logos/figma.svg';
-  
+  import javaLogo from '@/assets/logos/java.svg';
+  import springbootLogo from '@/assets/logos/springboot.png';
+  import vuetifyLogo from '@/assets/logos/vuetify.svg';
+  import mongoDBLogo from '@/assets/logos/mongodb-svgrepo-com.svg';
+  import swaggerLogo from '@/assets/logos/swagger.svg';
+  import materialUiLogo from '@/assets/logos/material-ui.svg';
+  import jenkinsLogo from '@/assets/logos/jenkins.svg';
   
   // Technologies
   const technologies = [
@@ -83,7 +89,8 @@
     { name: 'PHP', logo: phpLogo },
     { name: 'MySQL', logo: mysqlLogo },
     { name: 'SQLite', logo: sqliteLogo },
-    
+    { name: 'Java', logo: javaLogo },
+    { name: 'MongoDB', logo: mongoDBLogo },
   ];
   
   // Frameworks & Bibliothèques
@@ -92,9 +99,12 @@
     { name: 'Vue.js', logo: vueLogo },
     { name: 'Node.js', logo: nodeLogo },
     { name: 'Quasar', logo: quasarLogo },
+    { name: 'Vuetify', logo: vuetifyLogo },
     { name: 'Electron', logo: electronLogo },
     { name: 'React', logo: reactLogo },
     { name: 'Sequelize', logo: sequelizeLogo },
+    { name: 'Spring Boot', logo: springbootLogo },
+    { name: 'Material UI', logo: materialUiLogo },
   ];
   
   // Outils & Environnements
@@ -109,13 +119,14 @@
   { name: 'npm', logo: npmLogo },
   { name: 'FileZilla', logo: filezillaLogo },
   { name: 'Postman', logo: postmanLogo },
+  { name: 'Swagger', logo: swaggerLogo },
+  { name: 'Jenkins', logo: jenkinsLogo },
 ];
 
 const productivity = [
   { name: 'Trello', logo: trelloLogo },
   { name: 'Slack', logo: slackLogo },
-  { name: 'Figma', logo: figmaLogo },
- 
+  { name: 'Figma', logo: figmaLogo },  
 ];
   </script>
   

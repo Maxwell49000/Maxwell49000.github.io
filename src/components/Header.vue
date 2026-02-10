@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ 'dark-mode': isDarkMode }">
     <div class="header-container">
       <div class="logo">
         <h1>Axel Paillard</h1>
@@ -36,7 +36,9 @@ const toggleDarkMode = () => {
 };
 </script>
 
-<style scoped>
+<style>
+
+
 header {
   background-color: #333;
   padding: 1rem 2rem;
@@ -74,7 +76,7 @@ nav ul {
 }
 
 nav ul li a {
-  color: #bbb;
+  color: black;
   font-size: 1rem;
   text-decoration: none;
   transition: color 0.3s, border-bottom 0.3s;
@@ -109,4 +111,13 @@ nav ul li a:hover {
   font-size: 1.5rem;
   cursor: pointer;
 }
+
+@media screen and (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+}
+
 </style>

@@ -5,7 +5,7 @@
     <Skills id="skills" />
     <Projects id="projects" />
     <Contact id="contact" />
-    <Footer />
+    <Footer :isDarkMode="darkMode" />
   </div>
 </template>
 
@@ -53,11 +53,6 @@ header {
   background-color: white;
 }
 
-footer {
-  background-color: white;
-  color: #333;
-}
-
 /* Mode sombre (appliqué lorsque dark-mode est activé) */
 body.dark-mode {
   background-color: #121212;
@@ -69,10 +64,6 @@ body.dark-mode header {
   color: #fff;
 }
 
-body.dark-mode footer {
-  background-color: #1a1a1a;
-  color: #fff;
-}
 
 body.dark-mode a {
   color: #fff;
@@ -87,11 +78,7 @@ body.dark-mode a:hover {
   border-radius: 8px;
 }
 
-.dark-mode header, 
-.dark-mode footer {
-  background-color: #222 !important;
-  color: #fff !important;
-}
+
 .dark-mode .about p,
 .dark-mode .about h2 {
   color: #fff;
@@ -277,20 +264,6 @@ body.dark-mode a:hover {
   border-bottom: 2px solid #00aaff;
 }
 
-/* ---- Dark Mode pour le footer ---- */
-.dark-mode footer {
-  background-color: #1e1e1e;
-  color: white;
-}
-
-.dark-mode footer a {
-  color: white;
-}
-
-.dark-mode footer a:hover {
-  color: #00aaff;
-}
-
 /* ---- Dark Mode pour les éléments du body ---- */
 .dark-mode body {
   background-color: #181818;
@@ -313,4 +286,10 @@ body.dark-mode a:hover {
 .dark-mode .dark-mode-toggle:hover {
   color: #00aaff;
 }
+
+div.dark-mode {
+  width: 100%;
+  overflow-x: hidden; /* bloque tout scroll horizontal */
+}
+
 </style>

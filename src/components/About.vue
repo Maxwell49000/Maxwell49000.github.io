@@ -1,11 +1,16 @@
 <template>
   <section class="about" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
     <h2>À propos de moi</h2>
-    <p>Après 10 années passées dans le commerce, dans le cadre d'une reconversion professionnelle, je prépare actuellement un titre professionnel de développeur web et web mobile au CEFii.</p>
-    <p>Je suis activement à la recherche d'une alternance en CDA sur la région angevine et alentours. Je suis mobile et véhiculé.</p>
-    <p>Fort d'une expérience en tant que responsable adjoint de magasin, j'ai acquis des compétences clés en gestion de projet, travail en équipe, adaptabilité et rigueur.</p>
-    <p>J'ai déjà travaillé sur plusieurs projets, notamment un site de gestion pour un festival intégrant un système de réservation optimisé.</p>
-    <p>Si vous souhaitez en savoir plus ou collaborer avec moi, n'hésitez pas à me contacter.</p>
+
+    <p>Après dix années passées dans le commerce, j’ai entrepris une reconversion professionnelle qui m’a permis d’obtenir le titre professionnel de Développeur Web et Web Mobile.</p>
+
+    <p>Je poursuis aujourd’hui mon parcours au CEFii, où je prépare le titre de Concepteur Développeur d’Applications (CDA) tout en travaillant en alternance chez INETUM.</p>
+
+    <p>Cette expérience en entreprise me permet de monter en compétences sur des projets concrets et d’évoluer dans un environnement technique exigeant et stimulant.</p>
+
+    <p>Mon expérience précédente en tant que responsable adjoint de magasin m’a apporté de solides compétences en gestion de projet, organisation, communication et travail d’équipe, que j’applique au quotidien dans mes missions de développement.</p>
+    
+    <p>Motivé, curieux et investi, je continue de développer mes compétences afin de concevoir des solutions performantes et adaptées aux besoins des utilisateurs.</p>
   </section>
 </template>
 
