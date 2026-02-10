@@ -95,7 +95,7 @@ const projects = [
     title: "LearningTracker",
     description: "LearningTracker — application web pour suivre facilement sa progression dans des cours en ligne. Les utilisateurs peuvent s’inscrire/se connecter, parcourir les cours et marquer chaque contenu comme lu/terminé. La progression est calculée par contenu et par cours (pourcentage / barre de progression), avec un tableau de bord qui affiche l’avancement global. Un espace admin permet de créer, modifier ou supprimer cours et contenus et de consulter les statistiques de progression.",
     image: learningTracker,
-    technologies: ["React", "MUI (Material Design)","Spring Boot", "Tech3"],
+    technologies: ["React", "MUI (Material Design)","Spring Boot", "MySQL", "Swagger"],
     link: null
   }
 ];
