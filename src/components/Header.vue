@@ -57,6 +57,7 @@ header {
   position: relative;
   display: flex;
   align-items: center;
+  overflow: hidden;
 }
 
 .logo h1 {
@@ -78,7 +79,7 @@ header {
 
 .logo-underline {
   position: absolute;
-  bottom: -5px;
+  bottom: -8px;
   left: 0;
   height: 2px;
   width: 0;
@@ -184,16 +185,16 @@ nav ul li a:hover::after {
     right: 0;
     background: linear-gradient(180deg, rgba(15, 15, 30, 0.98) 0%, rgba(26, 26, 46, 0.95) 100%);
     backdrop-filter: blur(15px);
-    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     transform: none;
-    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
   }
 
   nav.active {
     max-height: 500px;
+    border-bottom: 2px solid rgba(0, 212, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 212, 255, 0.15);
   }
 
   nav ul {

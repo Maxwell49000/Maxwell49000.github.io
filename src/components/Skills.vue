@@ -212,15 +212,14 @@ const productivity = [
     width: 70px;
     height: 70px;
     object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.2));
+    filter: brightness(1.3) drop-shadow(0 0 12px rgba(0, 212, 255, 0.4));
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     z-index: 1;
   }
   
   .skill-item:hover .skill-logo {
-    filter: drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
-    transform: scale(1.2) rotateY(10deg);
+    filter: brightness(1.5) drop-shadow(0 0 20px rgba(0, 212, 255, 0.6));
   }
   
   .skill-name {
