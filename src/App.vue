@@ -1,295 +1,303 @@
 <template>
-  <div :class="{ 'dark-mode': darkMode }">
-    <Header :isDarkMode="darkMode" @toggle-dark-mode="toggleDarkMode" />
+  <div>
+    <Header />
+    <Hero />
     <About id="about" />
     <Skills id="skills" />
     <Projects id="projects" />
     <Contact id="contact" />
-    <Footer :isDarkMode="darkMode" />
+    <Footer />
   </div>
 </template>
 
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import Header from './components/Header.vue';
+import Hero from './components/Hero.vue';
 import About from './components/About.vue';
 import Skills from './components/Skills.vue';
 import Projects from './components/Projects.vue';
 import Contact from './components/Contact.vue';
 import Footer from './components/Footer.vue';
 
-const darkMode = ref(true); // Initialisé à true par défaut
-
-// Fonction pour basculer le mode sombre
-const toggleDarkMode = () => {
-  darkMode.value = !darkMode.value;
-  localStorage.setItem('dark-mode', darkMode.value.toString());
-
-  if (darkMode.value) {
-    document.body.classList.add('dark-mode');
-  } else {
-    document.body.classList.remove('dark-mode');
-  }
-};
-
-// Appliquer le mode sombre immédiatement
+// Appliquer le mode sombre par défaut
 onMounted(() => {
-  // Forcer le mode sombre par défaut lors du premier chargement
   document.body.classList.add('dark-mode');
-  localStorage.setItem('dark-mode', 'true');
 });
 </script>
 
 <style>
-/* Styles globaux - Mode clair par défaut */
+/* === RESET & GLOBAL STYLES === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: #fff;
-  color: #333;
+  background-color: #0f0f1e;
+  color: #fff;
   overflow-x: hidden;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
+/* === COLOR SCHEME === */
+:root {
+  --primary: #00d4ff;
+  --primary-dark: #0099cc;
+  --secondary: #7c3aed;
+  --accent: #ff006e;
+  --bg-dark: #0f0f1e;
+  --bg-lighter: #1a1a2e;
+  --bg-card: #252525;
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.8);
+  --text-muted: rgba(255, 255, 255, 0.5);
+  --border: rgba(0, 212, 255, 0.2);
+  --shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
+}
+
+/* === HEADER STICKY === */
 header {
-  background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: rgba(15, 15, 30, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  transition: all 0.3s ease;
 }
 
-/* Mode sombre (appliqué lorsque dark-mode est activé) */
-body.dark-mode {
-  background-color: #121212;
-  color: #fff;
+header:hover {
+  box-shadow: var(--shadow);
 }
 
-body.dark-mode header {
-  background-color: #333;
-  color: #fff;
+/* === SECTIONS === */
+section {
+  scroll-margin-top: 80px;
 }
 
-
-body.dark-mode a {
-  color: #fff;
+/* === ANIMATIONS === */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-body.dark-mode a:hover {
-  color: #00aaff;
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.dark-mode section {
-  background-color: #252525 !important;
-  border-radius: 8px;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-
-.dark-mode .about p,
-.dark-mode .about h2 {
-  color: #fff;
-}
-.dark-mode .projects p,
-.dark-mode .projects h2{
-  color:#fff;
-}
-.dark-mode .projects{
-  color:black;
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
-.dark-mode a {
-  color: #fff;
+/* === MODAL STATE === */
+body.modal-open {
+  overflow: hidden !important;
 }
 
-.dark-mode a:hover {
-  color: #00aaff;
+/* Geler complètement le hero et ses enfants quand modal ouvert */
+body.modal-open .hero,
+body.modal-open .floating-elements {
+  visibility: hidden !important;
+  pointer-events: none !important;
+  position: fixed !important;
 }
 
-.dark-mode .projects {
-  background-color: #1e1e1e;
-  color: white;
+body.modal-open .float-box {
+  will-change: auto !important;
+  animation: none !important;
+  transform: none !important;
 }
 
-.dark-mode .projects h2 {
-  color: white;
+/* Empêcher TOUT repaint pendant le modal */
+body.modal-open * {
+  animation-play-state: paused !important;
+  will-change: auto !important;
 }
 
-.dark-mode .projects p {
-  color: white;
-}
-
-.dark-mode .project-card {
-  background: #292929;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .project-card h3 {
-  color: white;
-}
-
-.dark-mode .project-card p {
-  color: white;
-}
-
-.dark-mode .technologies span {
-  background: #007bff;
-  color: white;
-}
-
-.dark-mode .project-link {
-  background: #007bff;
-  color: white;
-}
-
-.dark-mode .project-link:hover {
-  background: #0056b3;
-}
-
+/* === DARK MODE OVERRIDES === */
 .dark-mode {
-  background-color: #121212;
-  color: white;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
 }
 
-/* ---- Dark Mode pour la section "Projets" ---- */
-.dark-mode .projects {
-  background-color: #1e1e1e;
-  color: white;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .projects h2 {
-  color: white;
-}
-
-.dark-mode .projects p {
-  color: white;
-}
-
-.dark-mode .project-card {
-  background: #2a2a2a;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .project-card h3 {
-  color: white;
-}
-
-.dark-mode .project-card p {
-  color: white;
-}
-
-.dark-mode .technologies span {
-  background: #0056b3;
-}
-
-.dark-mode .project-link {
-  background: #0056b3;
-}
-
-.dark-mode .project-link:hover {
-  background: #003d80;
-}
-
-/* ---- Dark Mode pour la section "Contact" ---- */
-.dark-mode .contact {
-  background-color: #1e1e1e;
-  color: white;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
-}
-
-.dark-mode .contact h2 {
-  color: white;
-}
-
-.dark-mode .contact p {
-  color: white;
-}
-
-.dark-mode .detail-item i {
-  color: #4a90e2;
-}
-
-.dark-mode .detail-item a {
-  color: #4a90e2;
-}
-
-.dark-mode .detail-item a:hover {
-  color: #2f6baf;
-}
-
-.dark-mode .cv-button {
-  background-color: #4a90e2;
-  color: white;
-}
-
-.dark-mode .cv-button:hover {
-  background-color: #2f6baf;
-}
-
-/* ---- Responsive Dark Mode ---- */
-@media (max-width: 768px) {
-  .dark-mode .projects,
-  .dark-mode .contact {
-    width: 95%;
-    padding: 2rem;
-  }
-
-  .dark-mode .projects h2,
-  .dark-mode .contact h2 {
-    font-size: 1.8rem;
-  }
-
-  .dark-mode .projects p,
-  .dark-mode .contact p {
-    font-size: 1rem;
-  }
-}
-
-/* Mode sombre global */
-.dark-mode {
-  background-color: #121212;
-  color: white;
-}
-
-/* ---- Dark Mode pour le header ---- */
 .dark-mode header {
-  background-color: #1e1e1e;
-  color: white;
+  background: rgba(26, 26, 46, 0.85);
+  color: var(--text-primary);
 }
 
 .dark-mode .logo h1 {
-  color: #4a90e2;
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .dark-mode nav ul li a {
-  color: white;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
 }
 
 .dark-mode nav ul li a:hover {
-  color: #00aaff;
-  border-bottom: 2px solid #00aaff;
+  color: var(--primary);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
 }
 
-/* ---- Dark Mode pour les éléments du body ---- */
-.dark-mode body {
-  background-color: #181818;
-  color: white;
+/* === SECTIONS STYLING === */
+.dark-mode section {
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(37, 37, 55, 0.3) 100%);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
-/* ---- Dark Mode pour le bouton de changement de mode sombre ---- */
-.dark-mode .dark-mode-toggle {
-  color: #fff;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  cursor: pointer;
+.dark-mode section:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+  transform: translateY(-2px);
 }
 
-.dark-mode .dark-mode-toggle span {
-  color: white;
+.dark-mode section h2 {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.dark-mode .dark-mode-toggle:hover {
-  color: #00aaff;
+.dark-mode section p {
+  color: var(--text-secondary);
 }
 
-div.dark-mode {
-  width: 100%;
-  overflow-x: hidden; /* bloque tout scroll horizontal */
+/* === PROJECT CARDS === */
+.dark-mode .project-card {
+  background: linear-gradient(135deg, rgba(37, 37, 55, 0.8) 0%, rgba(26, 26, 46, 0.5) 100%);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
+.dark-mode .project-card:hover {
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 16px 48px rgba(0, 212, 255, 0.2);
+  transform: translateY(-8px);
+}
+
+.dark-mode .project-card h3 {
+  color: var(--primary);
+}
+
+.dark-mode .project-card p {
+  color: var(--text-secondary);
+}
+
+.dark-mode .stack span {
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dark-mode .stack span:hover {
+  background: rgba(0, 212, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+}
+
+/* === CONTACT SECTION === */
+.dark-mode .contact {
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(37, 37, 55, 0.3) 100%);
+}
+
+.dark-mode .detail-item {
+  background: rgba(0, 212, 255, 0.05);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dark-mode .detail-item:hover {
+  background: rgba(0, 212, 255, 0.1);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.15);
+}
+
+.dark-mode .detail-item i {
+  color: var(--primary);
+}
+
+.dark-mode .detail-item a {
+  color: var(--text-secondary);
+}
+
+.dark-mode .detail-item:hover a {
+  color: var(--primary);
+}
+
+/* === SKILLS SECTION === */
+.dark-mode .skill-item {
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  border-radius: 12px;
+}
+
+.dark-mode .skill-item:hover {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.2);
+  transform: translateY(-6px);
+}
+
+/* === GENERAL LINKS === */
+.dark-mode a {
+  color: var(--primary);
+  transition: all 0.3s ease;
+}
+
+.dark-mode a:hover {
+  color: var(--secondary);
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .dark-mode section {
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+  }
+}
 </style>

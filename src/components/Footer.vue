@@ -1,5 +1,5 @@
 <template>
-  <footer :class="{ 'dark-mode': isDarkMode }">
+  <footer>
     <div class="footer-container">
       <div class="footer-info">
         <h3>Axel Paillard</h3>
@@ -30,28 +30,29 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2025 Axel Paillard - Tous droits réservés</p>
+      <p>&copy; {{ currentYear }} Axel Paillard - Tous droits réservés</p>
     </div>
   </footer>
 </template>
 
 <script setup>
-// Déclarer la prop isDarkMode
-defineProps({
-  isDarkMode: {
-    type: Boolean,
-    required: true
-  }
+import { ref, onMounted } from 'vue';
+
+const currentYear = ref(new Date().getFullYear());
+
+onMounted(() => {
+  currentYear.value = new Date().getFullYear();
 });
 </script>
 
 <style scoped>
-/* -------- Mode clair par défaut -------- */
+/* -------- Mode sombre par défaut -------- */
 footer {
-  background-color: #f5f5f5;
-  color: #333;
+  background: linear-gradient(135deg, rgba(15, 15, 30, 0.95) 0%, rgba(26, 26, 46, 0.95) 100%);
+  color: #fff;
   padding: 2rem 0;
   font-family: 'Roboto', sans-serif;
+  border-top: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .footer-container {
@@ -68,13 +69,17 @@ footer {
 
 .footer-info h3 {
   font-size: 1.6rem;
-  color: #007bff;
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .footer-info p {
   font-size: 1rem;
-  color: #333;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .footer-links {
@@ -84,8 +89,9 @@ footer {
 
 .footer-links h4 {
   font-size: 1.2rem;
-  color: #333;
+  color: #00d4ff;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .footer-links ul {
@@ -98,14 +104,15 @@ footer {
 }
 
 .footer-links a {
-  color: #333;
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 1rem;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
-  color: #007bff;
+  color: #00d4ff;
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
 .footer-socials {
@@ -115,8 +122,9 @@ footer {
 
 .footer-socials h4 {
   font-size: 1.2rem;
-  color: #333;
+  color: #00d4ff;
   margin-bottom: 1rem;
+  font-weight: 600;
 }
 
 .social-icons {
@@ -125,13 +133,14 @@ footer {
 }
 
 .social-icons a {
-  color: #333;
+  color: rgba(255, 255, 255, 0.8);
   font-size: 1.5rem;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
-  color: #007bff;
+  color: #00d4ff;
+  transform: scale(1.2);
 }
 
 .footer-bottom {
@@ -141,30 +150,7 @@ footer {
 
 .footer-bottom p {
   font-size: 0.9rem;
-  color: #555;
-}
-
-/* -------- Mode sombre -------- */
-footer.dark-mode {
-  background-color: #1e1e1e;
-}
-
-footer.dark-mode .footer-info h3 {
-  color: #4a90e2;
-}
-
-footer.dark-mode .footer-info p,
-footer.dark-mode .footer-links h4,
-footer.dark-mode .footer-links a,
-footer.dark-mode .footer-socials h4,
-footer.dark-mode .social-icons a,
-footer.dark-mode .footer-bottom p {
-  color: #ffffff;
-}
-
-footer.dark-mode .footer-links a:hover,
-footer.dark-mode .social-icons a:hover {
-  color: #00aaff;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* -------- Responsive -------- */

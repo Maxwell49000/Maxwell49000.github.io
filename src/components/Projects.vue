@@ -15,9 +15,7 @@
         <!-- MOCKUP -->
         <div class="mockup">
           <div class="mockup-screen">
-            <button class="img-button" @click="openModal(project)">
-              <img :src="project.image" :alt="project.title" />
-            </button>
+            <img :src="project.image" :alt="project.title" />
           </div>
         </div>
 
@@ -35,25 +33,18 @@
       </div>
     </div>
 
-    <!-- Lightbox modal -->
-    <div v-if="modalOpen" class="lightbox" @click.self="closeModal">
-      <div class="lightbox-content">
-        <button class="lightbox-close" @click="closeModal" aria-label="Fermer">×</button>
-        <img :src="modalImage" alt="Aperçu du projet" />
-      </div>
-    </div>
-
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 import festivalImg from '@/assets/img/Festival.PNG';
 import tachesImg from '@/assets/img/Taches.PNG';
 import ecommerceImg from '@/assets/img/E-commerce.PNG';
 import applicationImg from '@/assets/img/Application.PNG';
 import linkDong from '@/assets/img/linkdong.PNG';
 import learningTracker from '@/assets/img/learningTracker.PNG';
+import chatSpringAI from '@/assets/img/chatSpringAI.PNG';
 
 const projects = [
   {
@@ -93,37 +84,30 @@ const projects = [
   },
   {
     title: "LearningTracker",
-    description: "LearningTracker — application web pour suivre facilement sa progression dans des cours en ligne. Les utilisateurs peuvent s’inscrire/se connecter, parcourir les cours et marquer chaque contenu comme lu/terminé. La progression est calculée par contenu et par cours (pourcentage / barre de progression), avec un tableau de bord qui affiche l’avancement global. Un espace admin permet de créer, modifier ou supprimer cours et contenus et de consulter les statistiques de progression.",
+    description: "LearningTracker est une application web de suivi de progression dans des cours en ligne. Les utilisateurs peuvent s'inscrire, se connecter, consulter les cours et marquer les contenus comme terminés. La progression est calculée par contenu et par cours, avec un tableau de bord affichant l'avancement global. Un espace administrateur permet de gérer les cours et contenus ainsi que de consulter les statistiques de progression.",
     image: learningTracker,
-    technologies: ["React", "MUI (Material Design)","Spring Boot", "MySQL", "Swagger"],
+    technologies: ["React", "MUI (Material Design)", "Spring Boot", "MySQL", "Swagger"],
+    link: null
+  },
+  {
+    title: "ChatSpringAI",
+    description: "ChatSpringAI est une application de chat conversationnel moderne qui combine la puissance de la génération de texte avec la récupération de documents pertinents (RAG). Conçue pour fonctionner sur des PC avec ressources limitées en utilisant des modèles IA légers comme Gemma.",
+    image: chatSpringAI,
+    technologies: ["Vue.js", "Spring Boot", "Spring AI", "PostgreSQL", "Docker", "Ollama", "PGVector"],
     link: null
   }
 ];
 
-// Lightbox state & handlers
-const modalOpen = ref(false);
-const modalImage = ref(null);
-
-function openModal(project) {
-  modalImage.value = project.image;
-  modalOpen.value = true;
-  document.body.style.overflow = 'hidden';
-}
-
-function closeModal() {
-  modalOpen.value = false;
-  modalImage.value = null;
-  document.body.style.overflow = '';
-}
-
+// Keyboard shortcut
 function onKeyDown(e) {
-  if (e.key === 'Escape' && modalOpen.value) closeModal();
+  if (e.key === 'Escape') {
+    // Future use if needed
+  }
 }
 
-onMounted(() => window.addEventListener('keydown', onKeyDown));
+onMounted(() => globalThis.addEventListener('keydown', onKeyDown));
 onUnmounted(() => {
-  window.removeEventListener('keydown', onKeyDown);
-  document.body.style.overflow = '';
+  globalThis.removeEventListener('keydown', onKeyDown);
 });
 </script>
 
@@ -136,44 +120,101 @@ body, html {
 .projects {
   width: 90%;
   max-width: 1200px;
-  margin: 4rem auto;      /* même top que skills */
-  padding: 3rem 5%;       /* padding interne comme skills */
-  background-color: #f8f9fa; /* optionnel : si tu veux un encadré comme skills */
-  border-radius: 8px;     /* optionnel : coins arrondis comme skills */
+  margin: 4rem auto;
+  padding: 3rem 5%;
+  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(37, 37, 55, 0.3) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
   text-align: center;
-  font-family: 'Roboto', sans-serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* optionnel */
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
   box-sizing: border-box;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.projects:hover {
+  border-color: rgba(0, 212, 255, 0.4);
+  box-shadow: 0 12px 48px rgba(0, 212, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.projects h2 {
+  font-size: 2.5rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.projects > p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  font-weight: 400;
 }
 
 /* Grid responsive */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
   justify-items: center;
+  width: 100%;
 }
+
 /* CARD */
 .project-card {
-  background: white;
-  border-radius: 14px;
-  padding: 1.8rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-  transition: transform .25s ease, box-shadow .25s ease;
+  background: linear-gradient(135deg, rgba(37, 37, 55, 0.8) 0%, rgba(26, 26, 46, 0.5) 100%);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 360px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  transition: all 0.6s ease;
+  opacity: 0;
 }
 
 .project-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 16px 48px rgba(0, 212, 255, 0.2);
+  transform: translateY(-12px) scale(1.02);
+}
+
+.project-card:hover::before {
+  opacity: 1;
+  top: 0;
+  left: 0;
 }
 
 /* MOCKUP */
 .mockup {
-  background: #e8e8e8;
-  border-radius: 10px;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid rgba(0, 212, 255, 0.2);
+  border-radius: 12px;
   padding: 12px;
   position: relative;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
 }
 
 .mockup::before {
@@ -183,15 +224,22 @@ body, html {
   left: 50%;
   width: 60px;
   height: 6px;
-  background: #ccc;
+  background: linear-gradient(90deg, #00d4ff, #7c3aed);
   border-radius: 10px;
   transform: translateX(-50%);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
 }
 
 .mockup-screen {
-  height: 180px;
+  height: 200px;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .mockup-screen {
+  box-shadow: inset 0 0 20px rgba(0, 212, 255, 0.1);
 }
 
 .mockup-screen img {
@@ -201,92 +249,39 @@ body, html {
   object-position: center;
   background-color: #fff;
   display: block;
+  transition: transform 0.3s ease;
 }
 
-/* Clickable image button */
-.img-button {
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  cursor: zoom-in;
-}
-
-.img-button:focus {
-  outline: 2px solid rgba(0,123,255,0.25);
-}
-
-/* Lightbox / modal */
-.lightbox {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  padding: 20px;
-}
-
-.lightbox-content {
-  position: relative;
-  max-width: 1100px;
-  width: 100%;
-  max-height: 90vh;
-}
-
-.lightbox-content img {
-  width: 100%;
-  height: auto;
-  max-height: 90vh;
-  object-fit: contain;
-  border-radius: 8px;
-  background: #fff;
-  display: block;
-}
-
-.lightbox-close {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: #fff;
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  cursor: pointer;
-  font-size: 20px;
-  line-height: 1;
+.project-card:hover .mockup-screen img {
+  transform: scale(1.05);
 }
 
 /* TEXT */
-.projects h2 {
-  font-size: 2rem;
-  margin-top: 0;          /* top réduit */
-  margin-bottom: 1rem;    /* espace comme skills */
-}
-
-.projects p {
-  text-align: center;
-  margin-bottom: 3rem;
-  color: #555;
-  font-size: 1rem;
-}
-
-
-
 h3 {
-  margin-top: 0.6rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #00d4ff;
+  font-weight: 600;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover h3 {
+  color: #7c3aed;
+  text-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
 }
 
 .description {
-  color: #555;
-  min-height: 60px;
-  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  min-height: 70px;
+  margin-bottom: 1.5rem;
   text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
 }
 
 /* STACK */
@@ -294,17 +289,29 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: .5rem;
-  margin-bottom: 1.3rem;
+  gap: 0.7rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .stack span {
-  background: #eef1f7;
-  padding: 0.35rem 0.8rem;
-  border-radius: 20px;
-  font-size: .85rem;
-  color: #333;
-  font-weight: 500;
+  background: rgba(0, 212, 255, 0.15);
+  border: 1px solid rgba(0, 212, 255, 0.3);
+  padding: 0.45rem 1rem;
+  border-radius: 24px;
+  font-size: 0.85rem;
+  color: #00d4ff;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.stack span:hover {
+  background: rgba(0, 212, 255, 0.3);
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 /* LINKS */
@@ -312,48 +319,125 @@ h3 {
   display: flex;
   justify-content: center;
   gap: 1.2rem;
+  position: relative;
+  z-index: 1;
+  margin-top: auto;
 }
 
 .view-link {
-  padding: 0.45rem 1rem;
-  background: #007bff;
+  padding: 0.6rem 1.5rem;
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
   color: white;
-  border-radius: 6px;
+  border: none;
+  border-radius: 8px;
   text-decoration: none;
-  transition: background .2s;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(0, 212, 255, 0.2);
 }
 
-.view-link:hover { background: #005dcc; }
+.view-link:hover {
+  box-shadow: 0 8px 25px rgba(0, 212, 255, 0.4);
+  transform: translateY(-3px);
+}
+
+.view-link:active {
+  transform: translateY(-1px);
+}
 
 .github-link {
-  font-size: 1.6rem;
-  color: #333;
-  transition: color .2s;
+  font-size: 1.8rem;
+  color: #ffffff;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 212, 255, 0.3);
 }
 
-.github-link:hover { color: #000; }
+.github-link:hover {
+  color: #7c3aed;
+  border-color: rgba(0, 212, 255, 0.7);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  transform: scale(1.15) rotate(-15deg);
+}
 
-@media(max-width: 600px) {
-  .mockup-screen {
-    height: 150px;
+@media (max-width: 600px) {
+  .projects {
+    padding: 2rem 4%;
   }
-  .lightbox-content { max-width: 95%; }
+
+  .projects h2 {
+    font-size: 1.8rem;
+  }
+
+  .mockup-screen {
+    height: 160px;
+  }
+
+  .project-grid {
+    gap: 1.5rem;
+  }
 }
 
 /* Petits écrans (iPhone SE et similaires) */
-@media (max-width: 400px) {
+@media (max-width: 480px) {
+  .projects {
+    padding: 1.5rem 3%;
+    margin: 2rem auto;
+  }
+
+  .projects h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .projects > p {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
   .project-grid {
-    grid-template-columns: 1fr; /* une seule colonne */
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   .project-card {
-    width: 100%;
-    max-width: 100%; /* occupe toute la largeur dispo */
-    box-sizing: border-box;
+    max-width: 100%;
+    padding: 1.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+  }
+
+  .description {
+    min-height: 60px;
+    font-size: 0.9rem;
+  }
+
+  .stack {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stack span {
+    padding: 0.35rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .links {
+    gap: 0.8rem;
+  }
+
+  .view-link {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
   }
 }
-
-
 </style>
-
