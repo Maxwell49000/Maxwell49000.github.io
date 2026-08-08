@@ -1,12 +1,12 @@
 <template>
   <section class="skills" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-    <header class="skills-heading">
+    <div class="skills-heading">
       <span class="skills-eyebrow">Écosystème technique</span>
       <h2>Mes compétences</h2>
       <p class="skills-intro">
         Une stack full-stack complétée par des outils d’architecture, de livraison et de collaboration.
       </p>
-    </header>
+    </div>
 
     <div class="featured-skills">
       <div class="section-heading">
@@ -258,9 +258,11 @@ const skillCount = (categoryId) => {
 
 .skills h2 {
   margin: 0.45rem 0 1rem;
-  font-size: clamp(2rem, 5vw, 2.8rem);
-  line-height: 1.1;
-  background: linear-gradient(135deg, #00d4ff, #7c3aed);
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: normal;
+  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -268,9 +270,9 @@ const skillCount = (categoryId) => {
 
 .skills .skills-intro {
   margin: 0;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 1.05rem;
-  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.1rem;
+  line-height: 1.8;
 }
 
 .featured-skills,
@@ -552,6 +554,14 @@ const skillCount = (categoryId) => {
     margin-bottom: 2rem;
   }
 
+  .skills h2 {
+    font-size: 2rem;
+  }
+
+  .skills .skills-intro {
+    font-size: 1rem;
+  }
+
   .skill-filters {
     flex-wrap: nowrap;
     margin-right: -1.25rem;
@@ -570,6 +580,10 @@ const skillCount = (categoryId) => {
     margin: 2rem auto;
     padding: 1.5rem 3%;
     border-radius: 16px;
+  }
+
+  .skills h2 {
+    font-size: 1.5rem;
   }
 
   .featured-skills,
