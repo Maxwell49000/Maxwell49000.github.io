@@ -3,7 +3,7 @@
     <div class="footer-container">
       <div class="footer-info">
         <h3>Axel Paillard</h3>
-        <p>Développeur web passionné, toujours à la recherche de nouveaux défis et opportunités !</p>
+        <p>Développeur web, attentif à la qualité et à la maintenabilité du code.</p>
       </div>
 
       <div class="footer-links">

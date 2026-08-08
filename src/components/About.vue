@@ -1,16 +1,11 @@
 <template>
   <section class="about" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
     <h2>À propos de moi</h2>
-
-    <p>Après dix années passées dans le commerce, j’ai entrepris une reconversion professionnelle qui m’a permis d’obtenir le titre professionnel de Développeur Web et Web Mobile.</p>
-
-    <p>Je poursuis aujourd’hui mon parcours au CEFii, où je prépare le titre de Concepteur Développeur d’Applications (CDA) tout en travaillant en alternance chez INETUM.</p>
-
-    <p>Cette expérience en entreprise me permet de monter en compétences sur des projets concrets et d’évoluer dans un environnement technique exigeant et stimulant.</p>
-
-    <p>Mon expérience précédente en tant que responsable adjoint de magasin m’a apporté de solides compétences en gestion de projet, organisation, communication et travail d’équipe, que j’applique au quotidien dans mes missions de développement.</p>
-    
-    <p>Motivé, curieux et investi, je continue de développer mes compétences afin de concevoir des solutions performantes et adaptées aux besoins des utilisateurs.</p>
+    <p class="about-intro">Après plus de 10 ans d’expérience dans le commerce, j’ai choisi de me réorienter vers une passion qui m’accompagne depuis longtemps : le développement informatique.</p>
+    <p>Après l’obtention du titre professionnel <strong>Développeur Web et Web Mobile</strong>, j’ai poursuivi mon parcours avec le titre professionnel <strong>Concepteur Développeur d’Applications (CDA)</strong>, obtenu à l’issue de ma formation en alternance au CEFii à Angers.</p>
+    <p>Aujourd’hui, j’exerce en tant que <strong>développeur web</strong> et je participe au développement ainsi qu’à l’évolution d’applications au sein de projets professionnels.</p>
+    <p>Je travaille principalement avec <strong>Java et Spring Boot</strong> côté backend, ainsi qu’avec <strong>Vue.js et TypeScript</strong> côté frontend. J’interviens dans des environnements applicatifs complets, de la compréhension du besoin à sa mise en œuvre technique.</p>
+    <p>Curieux et toujours désireux de progresser, je continue à approfondir mes compétences avec une attention particulière portée à la qualité, à la lisibilité et à la maintenabilité du code.</p>
   </section>
 </template>
 
@@ -81,6 +76,15 @@
   text-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
 }
 
+.about-intro {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.about strong {
+  color: #00d4ff;
+}
+
 /* Ajustement pour petits écrans */
 @media (max-width: 768px) {
   .about {
@@ -114,6 +118,10 @@
   .about p {
     font-size: 0.95rem;
     margin-bottom: 1rem;
+  }
+
+  .about-intro {
+    font-size: 1.08rem;
   }
 }
 </style>
