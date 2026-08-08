@@ -42,9 +42,9 @@ import festivalImg from '@/assets/img/Festival.PNG';
 import tachesImg from '@/assets/img/Taches.PNG';
 import ecommerceImg from '@/assets/img/E-commerce.PNG';
 import applicationImg from '@/assets/img/Application.PNG';
-import linkDong from '@/assets/img/linkdong.PNG';
-import learningTracker from '@/assets/img/learningTracker.PNG';
-import chatSpringAI from '@/assets/img/chatSpringAI.PNG';
+import linkDong from '@/assets/img/LinkDong.png';
+import learningTracker from '@/assets/img/LearningTracker.png';
+import chatSpringAI from '@/assets/img/ChatSpringAi.png';
 
 const projects = [
   {
