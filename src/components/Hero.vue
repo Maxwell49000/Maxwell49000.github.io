@@ -23,7 +23,7 @@
         </p>
 
         <p class="hero-description">
-          Reconversion en cours. Passionné par l'apprentissage et les défis.
+          Passionné par l'apprentissage et les défis.
         </p>
 
         <div class="hero-cta">
