@@ -12,6 +12,7 @@
   "homepage": "https://Maxwell49000.github.io/",
   "dependencies": {
     "aos": "^2.3.4",
+    "simple-icons": "^16.28.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
