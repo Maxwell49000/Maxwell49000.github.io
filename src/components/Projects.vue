@@ -609,15 +609,33 @@ onUnmounted(() => {
 .project-dialog {
   position: relative;
   display: grid;
+  align-items: start;
   grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
   width: min(1120px, 100%);
-  max-height: calc(100vh - 4rem);
-  overflow: hidden;
+  max-height: calc(100dvh - clamp(1.5rem, 6vw, 4rem));
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-color: rgba(var(--project-accent-rgb), 0.55) rgba(255, 255, 255, 0.05);
+  scrollbar-width: thin;
   border: 1px solid rgba(var(--project-accent-rgb), 0.38);
   border-radius: 20px;
   background: #0d1023;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55), 0 0 50px rgba(var(--project-accent-rgb), 0.1);
   font-family: var(--font-sans);
+}
+
+.project-dialog::-webkit-scrollbar {
+  width: 8px;
+}
+
+.project-dialog::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.project-dialog::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(var(--project-accent-rgb), 0.55);
 }
 
 .dialog-close {
@@ -647,7 +665,11 @@ onUnmounted(() => {
 }
 
 .dialog-gallery {
+  position: sticky;
+  top: 0;
   display: flex;
+  height: calc(100dvh - clamp(1.5rem, 6vw, 4rem));
+  max-height: 900px;
   min-width: 0;
   flex-direction: column;
   padding: 1rem;
@@ -758,7 +780,7 @@ onUnmounted(() => {
 
 .dialog-content {
   padding: clamp(2rem, 4vw, 3.2rem);
-  overflow-y: auto;
+  min-width: 0;
 }
 
 .dialog-kicker {
@@ -909,11 +931,10 @@ a:focus-visible {
   }
 
   .dialog-gallery {
+    position: relative;
     min-height: 460px;
-  }
-
-  .dialog-content {
-    overflow: visible;
+    height: auto;
+    max-height: none;
   }
 }
 
