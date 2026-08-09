@@ -30,11 +30,12 @@
             <span v-else-if="skill.monogram" class="skill-monogram teams-monogram">
               {{ skill.monogram }}
             </span>
-            <span
+            <img
               v-else
-              class="skill-mask"
-              :style="{ '--skill-icon': `url(${skill.logo})` }"
-            ></span>
+              :src="skill.logo"
+              alt=""
+              class="skill-logo"
+            />
           </div>
           <strong>{{ skill.name }}</strong>
           <span>{{ skill.usage }}</span>
@@ -79,11 +80,12 @@
             <span v-else-if="skill.monogram" class="skill-monogram teams-monogram">
               {{ skill.monogram }}
             </span>
-            <span
+            <img
               v-else
-              class="skill-mask"
-              :style="{ '--skill-icon': `url(${skill.logo})` }"
-            ></span>
+              :src="skill.logo"
+              alt=""
+              class="skill-logo"
+            />
           </div>
           <strong class="skill-name">{{ skill.name }}</strong>
           <span class="skill-usage">{{ skill.usage }}</span>
@@ -382,7 +384,7 @@ const skillCount = (categoryId) => {
 }
 
 .skill-svg,
-.skill-mask {
+.skill-logo {
   width: 34px;
   height: 34px;
 }
@@ -392,18 +394,18 @@ const skillCount = (categoryId) => {
   filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.35));
 }
 
-.skill-mask {
-  display: block;
-  background: currentColor;
-  -webkit-mask-image: var(--skill-icon);
-  mask-image: var(--skill-icon);
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  filter: drop-shadow(0 0 8px rgba(0, 212, 255, 0.35));
+.skill-logo {
+  object-fit: contain;
+  filter:
+    brightness(0)
+    saturate(100%)
+    invert(73%)
+    sepia(91%)
+    saturate(2934%)
+    hue-rotate(143deg)
+    brightness(101%)
+    contrast(104%)
+    drop-shadow(0 0 8px rgba(0, 212, 255, 0.35));
 }
 
 .skill-monogram {
@@ -511,7 +513,7 @@ const skillCount = (categoryId) => {
 }
 
 .skill-item .skill-svg,
-.skill-item .skill-mask {
+.skill-item .skill-logo {
   width: 30px;
   height: 30px;
 }
