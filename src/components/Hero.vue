@@ -18,12 +18,13 @@
         </h1>
 
         <p class="hero-subtitle">
-          <span class="typing-effect">Développeur Web & Mobile</span>
+          <span class="typing-effect">Développeur full-stack</span>
           <span class="cursor"></span>
         </p>
 
         <p class="hero-description">
-          Passionné par l'apprentissage et les défis.
+          Je conçois des applications métier maintenables avec Java, Spring Boot,
+          Vue.js et TypeScript.
         </p>
 
         <div class="hero-cta">
@@ -57,71 +58,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { onMounted, onUnmounted } from 'vue';
 
-const typedText = ref('');
-const fullText = 'Développeur Web & Mobile';
-const typingSpeed = 80;
+let lastTime = 0;
 
-onMounted(() => {
-  // Typing effect
-  let index = 0;
-  const typeInterval = setInterval(() => {
-    if (index < fullText.length) {
-      typedText.value += fullText[index];
-      index++;
-    } else {
-      clearInterval(typeInterval);
-    }
-  }, typingSpeed);
+function handleMouseMove(event) {
+  const now = Date.now();
+  if (now - lastTime < 16) return;
+  lastTime = now;
 
-  let isModalOpen = false;
-  let lastTime = 0;
-
-  // Parallax effect with throttle
-  const handleMouseMove = (e) => {
-    if (isModalOpen) return;
-    
-    const now = Date.now();
-    if (now - lastTime < 16) return;
-    lastTime = now;
-    
-    const elements = document.querySelectorAll('.float-box');
-    elements.forEach((el) => {
-      const x = (globalThis.innerWidth - e.clientX * 0.5) / 100;
-      const y = (globalThis.innerHeight - e.clientY * 0.5) / 100;
-      el.style.transform = `translateX(${x}px) translateY(${y}px)`;
-    });
-  };
-
-  // Observer pour modal-open class
-  const observer = new MutationObserver(() => {
-    const hasModalOpen = document.body.classList.contains('modal-open');
-    
-    if (hasModalOpen && !isModalOpen) {
-      // Modal vient de s'ouvrir - désactiver mousemove
-      isModalOpen = true;
-      globalThis.removeEventListener('mousemove', handleMouseMove);
-    } else if (!hasModalOpen && isModalOpen) {
-      // Modal vient de se fermer - réactiver mousemove
-      isModalOpen = false;
-      globalThis.addEventListener('mousemove', handleMouseMove, { passive: true });
-    }
+  document.querySelectorAll('.float-box').forEach((element) => {
+    const x = (globalThis.innerWidth - event.clientX * 0.5) / 100;
+    const y = (globalThis.innerHeight - event.clientY * 0.5) / 100;
+    element.style.transform = `translateX(${x}px) translateY(${y}px)`;
   });
+}
 
-  observer.observe(document.body, {
-    attributes: true,
-    attributeFilter: ['class']
-  });
-
-  globalThis.addEventListener('mousemove', handleMouseMove, { passive: true });
-
-  return () => {
-    clearInterval(typeInterval);
-    observer.disconnect();
-    globalThis.removeEventListener('mousemove', handleMouseMove);
-  };
-});
+onMounted(() => globalThis.addEventListener('mousemove', handleMouseMove, { passive: true }));
+onUnmounted(() => globalThis.removeEventListener('mousemove', handleMouseMove));
 </script>
 
 <style scoped>
@@ -515,6 +469,7 @@ onMounted(() => {
 
   .hero-cta {
     gap: 1rem;
+    margin-bottom: 0;
   }
 
   .btn {

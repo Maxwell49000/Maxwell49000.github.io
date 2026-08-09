@@ -1,19 +1,27 @@
 <template>
   <header>
     <div class="header-container">
-      <div class="logo">
+      <a href="#" class="logo" aria-label="Retour à l’accueil">
         <h1>Axel Paillard</h1>
         <div class="logo-underline"></div>
-      </div>
+      </a>
 
       <!-- Hamburger menu toggle -->
-      <button class="menu-toggle" @click="menuOpen = !menuOpen" :class="{ active: menuOpen }">
+      <button
+        type="button"
+        class="menu-toggle"
+        :class="{ active: menuOpen }"
+        :aria-label="menuOpen ? 'Fermer le menu' : 'Ouvrir le menu'"
+        :aria-expanded="menuOpen"
+        aria-controls="main-navigation"
+        @click="menuOpen = !menuOpen"
+      >
         <span></span>
         <span></span>
         <span></span>
       </button>
 
-      <nav :class="{ active: menuOpen }">
+      <nav id="main-navigation" aria-label="Navigation principale" :class="{ active: menuOpen }">
         <ul>
           <li><a href="#about" @click="menuOpen = false">À propos</a></li>
           <li><a href="#skills" @click="menuOpen = false">Compétences</a></li>
@@ -58,6 +66,7 @@ header {
   display: flex;
   align-items: center;
   overflow: hidden;
+  text-decoration: none;
 }
 
 .logo h1 {

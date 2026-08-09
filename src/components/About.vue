@@ -1,83 +1,116 @@
 <template>
   <section class="about" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
-    <h2>À propos de moi</h2>
-    <p class="about-intro">Après plus de 10 ans d’expérience dans le commerce, j’ai choisi de me réorienter vers une passion qui m’accompagne depuis longtemps : le développement informatique.</p>
-    <p>Après l’obtention du titre professionnel <strong>Développeur Web et Web Mobile</strong>, j’ai poursuivi mon parcours avec le titre professionnel <strong>Concepteur Développeur d’Applications (CDA)</strong>, obtenu à l’issue de ma formation en alternance au CEFii à Angers.</p>
-    <p>Aujourd’hui, j’exerce en tant que <strong>développeur web</strong> et je participe au développement ainsi qu’à l’évolution d’applications au sein de projets professionnels.</p>
-    <p>Je travaille principalement avec <strong>Java et Spring Boot</strong> côté backend, ainsi qu’avec <strong>Vue.js et TypeScript</strong> côté frontend. J’interviens dans des environnements applicatifs complets, de la compréhension du besoin à sa mise en œuvre technique.</p>
-    <p>Curieux et toujours désireux de progresser, je continue à approfondir mes compétences avec une attention particulière portée à la qualité, à la lisibilité et à la maintenabilité du code.</p>
+    <div class="about-heading">
+      <span class="about-eyebrow">Mon parcours</span>
+      <h2>À propos de moi</h2>
+    </div>
+
+    <div class="about-layout">
+      <div class="about-story">
+        <p class="about-intro">
+          Après un premier parcours dans le commerce, j’ai choisi de faire du
+          <strong>développement informatique</strong> mon métier.
+        </p>
+        <p>
+          Titulaire des titres professionnels <strong>Développeur Web et Web Mobile</strong>
+          et <strong>Concepteur Développeur d’Applications (CDA)</strong>, ce dernier obtenu
+          en alternance au CEFii à Angers, je participe aujourd’hui au développement et à
+          l’évolution d’applications professionnelles.
+        </p>
+        <p>
+          J’interviens de la compréhension du besoin à sa mise en œuvre technique, avec une
+          attention particulière portée à la qualité, à la lisibilité et à la maintenabilité du code.
+        </p>
+      </div>
+
+      <div class="approach" aria-label="Mon approche du développement">
+        <article>
+          <span class="approach-index">01</span>
+          <div>
+            <h3>Concevoir</h3>
+            <p>Comprendre le besoin et le traduire en solution cohérente.</p>
+          </div>
+        </article>
+        <article>
+          <span class="approach-index">02</span>
+          <div>
+            <h3>Développer</h3>
+            <p>Java et Spring Boot côté backend, Vue.js et TypeScript côté frontend.</p>
+          </div>
+        </article>
+        <article>
+          <span class="approach-index">03</span>
+          <div>
+            <h3>Maintenir</h3>
+            <p>Construire un code lisible, testable et capable d’évoluer.</p>
+          </div>
+        </article>
+      </div>
+    </div>
   </section>
 </template>
 
 <style scoped>
 .about {
+  position: relative;
   width: 90%;
   max-width: 1200px;
   margin: 4rem auto;
-  padding: 3rem 5%;
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(37, 37, 55, 0.3) 100%);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
-  text-align: center;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  padding: clamp(2rem, 5vw, 4rem) 5%;
   overflow: hidden;
+  border: 1px solid rgba(0, 212, 255, 0.2);
+  border-radius: 20px;
+  background:
+    radial-gradient(circle at 92% 15%, rgba(124, 58, 237, 0.1), transparent 28%),
+    linear-gradient(180deg, rgba(26, 26, 46, 0.66), rgba(20, 20, 38, 0.82));
   box-sizing: border-box;
-  position: relative;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.about::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  right: -10%;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
+.about-heading {
+  margin-bottom: 2.5rem;
+  text-align: center;
 }
 
-.about:hover {
-  border-color: rgba(0, 212, 255, 0.4);
-  box-shadow: 0 12px 48px rgba(0, 212, 255, 0.15);
-  transform: translateY(-4px);
+.about-eyebrow {
+  color: #00d4ff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .about h2 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin: 0.45rem 0 0;
+  background: linear-gradient(135deg, #00d4ff, #7c3aed);
   background-clip: text;
-  margin-bottom: 2rem;
-  word-wrap: break-word;
-  position: relative;
-  z-index: 1;
+  color: transparent;
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  line-height: 1.2;
 }
 
-.about p {
-  font-size: 1.1rem;
+.about-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(320px, 0.92fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+
+.about-story {
+  padding-top: 0.35rem;
+}
+
+.about-story p {
+  margin: 0 0 1.25rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1rem;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.5rem;
-  text-align: left;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  position: relative;
-  z-index: 1;
-  transition: all 0.3s ease;
 }
 
-.about p:hover {
-  color: rgba(255, 255, 255, 1);
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
-}
-
-.about-intro {
-  font-size: 1.3rem;
+.about-story .about-intro {
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 1.2rem;
   font-weight: 500;
 }
 
@@ -85,43 +118,72 @@
   color: #00d4ff;
 }
 
-/* Ajustement pour petits écrans */
-@media (max-width: 768px) {
-  .about {
-    width: 95%;
-    padding: 2.5rem 4%;
-    margin: 3rem auto;
-  }
+.approach {
+  display: grid;
+  gap: 0.75rem;
+}
 
-  .about h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-  }
+.approach article {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  padding: 1.15rem;
+  border: 1px solid rgba(0, 212, 255, 0.15);
+  border-radius: 13px;
+  background: rgba(7, 12, 29, 0.45);
+  transition: border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
 
-  .about p {
-    font-size: 1rem;
-    word-wrap: break-word;
-    text-align: center;
+.approach article:hover {
+  transform: translateX(4px);
+  border-color: rgba(0, 212, 255, 0.42);
+  background: rgba(0, 212, 255, 0.07);
+}
+
+.approach-index {
+  padding-top: 0.2rem;
+  color: #00d4ff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.approach h3 {
+  margin: 0 0 0.35rem;
+  color: #fff;
+  font-size: 1rem;
+}
+
+.approach p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 850px) {
+  .about-layout {
+    grid-template-columns: 1fr;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .about {
-    padding: 1.5rem 3%;
-    margin: 2rem auto;
+    width: 95%;
+    padding: 2rem 5%;
+    margin: 2.5rem auto;
   }
 
-  .about h2 {
-    font-size: 1.5rem;
+  .about-heading {
+    margin-bottom: 1.75rem;
   }
 
-  .about p {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-
-  .about-intro {
+  .about-story .about-intro {
     font-size: 1.08rem;
+  }
+
+  .about-story p {
+    font-size: 0.94rem;
   }
 }
 </style>

@@ -150,8 +150,23 @@
               <h3 :id="`${activeProject.slug}-dialog-title`">{{ activeProject.title }}</h3>
               <p class="dialog-lead">{{ activeProject.description }}</p>
 
+              <div class="project-story">
+                <article>
+                  <span>Le besoin</span>
+                  <p>{{ activeProject.need }}</p>
+                </article>
+                <article>
+                  <span>Le défi technique</span>
+                  <p>{{ activeProject.challenge }}</p>
+                </article>
+                <article>
+                  <span>Ce que le projet démontre</span>
+                  <p>{{ activeProject.demonstrates }}</p>
+                </article>
+              </div>
+
               <div class="dialog-section">
-                <span class="dialog-label">Points clés</span>
+                <span class="dialog-label">Fonctionnalités clés</span>
                 <ul class="feature-list">
                   <li v-for="feature in activeProject.features" :key="feature">{{ feature }}</li>
                 </ul>
@@ -197,6 +212,9 @@ const projects = [
     summary: 'Un assistant local qui transforme des documents en base de connaissances interrogeable.',
     description:
       'Sillage extrait, fragmente et vectorise des documents pour produire des réponses contextualisées avec une architecture RAG entièrement locale.',
+    need: 'Permettre d’interroger simplement ses propres documents sans envoyer leurs contenus vers un service distant.',
+    challenge: 'Orchestrer l’extraction multi-format, les embeddings, la recherche vectorielle et la génération locale dans un même flux.',
+    demonstrates: 'Une architecture RAG complète, une intégration IA maîtrisée et un traitement documentaire pensé de bout en bout.',
     technologies: ['Vue 3', 'Java 21', 'Spring Boot', 'Spring AI', 'PostgreSQL', 'pgvector', 'Ollama', 'Docker'],
     features: [
       'Import et indexation de fichiers PDF, Word et texte',
@@ -222,6 +240,9 @@ const projects = [
     summary: 'Une plateforme complète pour organiser des cours et suivre précisément sa progression.',
     description:
       'Learning Tracker réunit catalogue pédagogique, suivi d’avancement et administration dans une application sécurisée pensée pour une utilisation fluide sur tous les écrans.',
+    need: 'Centraliser des contenus pédagogiques et rendre la progression lisible pour les apprenants comme pour les administrateurs.',
+    challenge: 'Garantir la cohérence du suivi tout en sécurisant les parcours et les autorisations entre le frontend et l’API.',
+    demonstrates: 'La conception d’une application métier sécurisée, la modélisation du domaine et une livraison reproductible avec Docker et la CI.',
     technologies: ['React 19', 'Redux Toolkit', 'Material UI', 'Java 21', 'Spring Boot', 'Spring Security', 'MySQL', 'Docker'],
     features: [
       'Authentification JWT et gestion des rôles utilisateur et administrateur',
@@ -247,6 +268,9 @@ const projects = [
     summary: 'Un réseau social professionnel full-stack avec interactions et messagerie en temps réel.',
     description:
       'Konnekt propose profils, publications, connexions et conversations au sein d’une architecture full-stack associant données relationnelles et documentaires.',
+    need: 'Réunir profils, publications, connexions et conversations dans une expérience de réseau professionnel cohérente.',
+    challenge: 'Faire dialoguer données relationnelles, contenus documentaires et échanges temps réel sans complexifier l’expérience utilisateur.',
+    demonstrates: 'Une architecture full-stack distribuée, la persistance polyglotte et l’intégration de flux WebSocket dans un monorepo.',
     technologies: ['Vue 3', 'Quasar', 'Pinia', 'Java 17', 'Spring Boot', 'WebSocket', 'MySQL', 'MongoDB', 'Docker'],
     features: [
       'Profils enrichis avec expériences et compétences',
@@ -704,6 +728,10 @@ onUnmounted(() => {
   scrollbar-width: thin;
 }
 
+.gallery-thumbnails::-webkit-scrollbar {
+  height: 0;
+}
+
 .gallery-thumbnails button {
   height: 54px;
   padding: 2px;
@@ -749,6 +777,36 @@ onUnmounted(() => {
   color: rgba(255, 255, 255, 0.72);
   font-size: 0.96rem;
   line-height: 1.72;
+}
+
+.project-story {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.6rem;
+}
+
+.project-story article {
+  padding: 0.9rem 1rem;
+  border-left: 2px solid var(--project-accent);
+  border-radius: 0 9px 9px 0;
+  background: rgba(var(--project-accent-rgb), 0.055);
+}
+
+.project-story span {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--project-accent);
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-story p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.66);
+  font-size: 0.8rem;
+  line-height: 1.55;
 }
 
 .dialog-section {
@@ -903,6 +961,7 @@ a:focus-visible {
 
   .gallery-thumbnails {
     padding: 0 0.75rem 0.75rem;
+    scrollbar-width: none;
   }
 
   .dialog-content {
