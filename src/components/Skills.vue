@@ -14,7 +14,7 @@
           <span class="section-kicker">Au quotidien</span>
           <h3>Ma stack principale</h3>
         </div>
-        <p>Les technologies qui structurent aujourd’hui mon environnement de développement.</p>
+        <p>Les technologies qui structurent mon environnement de développement actuel.</p>
       </div>
 
       <div class="featured-grid">
@@ -49,7 +49,7 @@
           <span class="section-kicker">Écosystème complémentaire</span>
           <h3>Explorer par domaine</h3>
         </div>
-        <p>Sélectionnez une catégorie pour parcourir les technologies et outils associés.</p>
+        <p>Filtrez les compétences pour parcourir les technologies et outils par domaine.</p>
       </div>
 
       <div class="skill-filters" role="group" aria-label="Filtrer les compétences par domaine">
@@ -293,9 +293,9 @@ const skillCount = (categoryId) => {
 
 .section-heading {
   display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 2rem;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 0.65rem;
   margin-bottom: 1.5rem;
 }
 
@@ -306,12 +306,12 @@ const skillCount = (categoryId) => {
 }
 
 .section-heading p {
-  max-width: 470px;
+  max-width: 680px;
   margin: 0;
   color: rgba(255, 255, 255, 0.58);
   font-size: 0.9rem;
   line-height: 1.55;
-  text-align: right;
+  text-align: left;
 }
 
 .featured-grid {
@@ -534,15 +534,6 @@ const skillCount = (categoryId) => {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .section-heading {
-    align-items: start;
-    flex-direction: column;
-    gap: 0.65rem;
-  }
-
-  .section-heading p {
-    text-align: left;
-  }
 }
 
 @media (max-width: 768px) {
