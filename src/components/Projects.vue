@@ -630,12 +630,18 @@ onUnmounted(() => {
 }
 
 .project-dialog::-webkit-scrollbar-track {
+  margin-block: 12px;
+  border-radius: 999px;
   background: rgba(255, 255, 255, 0.05);
 }
 
 .project-dialog::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: rgba(var(--project-accent-rgb), 0.55);
+}
+
+.project-dialog::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .dialog-close {
