@@ -67,10 +67,10 @@ body {
   --bg-lighter: #1a1a2e;
   --bg-card: #252525;
   --text-primary: #ffffff;
-  --text-strong: rgba(255, 255, 255, 0.92);
-  --text-secondary: rgba(255, 255, 255, 0.74);
-  --text-muted: rgba(255, 255, 255, 0.58);
-  --text-subtle: rgba(255, 255, 255, 0.48);
+  --text-strong: rgba(255, 255, 255, 0.96);
+  --text-secondary: rgba(255, 255, 255, 0.86);
+  --text-muted: rgba(255, 255, 255, 0.74);
+  --text-subtle: rgba(255, 255, 255, 0.64);
   --border: rgba(0, 212, 255, 0.2);
   --shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
 }
