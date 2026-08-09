@@ -27,9 +27,6 @@
             <svg v-if="skill.icon" class="skill-svg" viewBox="0 0 24 24">
               <path :d="skill.icon.path" />
             </svg>
-            <span v-else-if="skill.monogram" class="skill-monogram teams-monogram">
-              {{ skill.monogram }}
-            </span>
             <img
               v-else
               :src="skill.logo"
@@ -77,9 +74,6 @@
             <svg v-if="skill.icon" class="skill-svg" viewBox="0 0 24 24">
               <path :d="skill.icon.path" />
             </svg>
-            <span v-else-if="skill.monogram" class="skill-monogram teams-monogram">
-              {{ skill.monogram }}
-            </span>
             <img
               v-else
               :src="skill.logo"
@@ -103,6 +97,7 @@ import {
   siCamunda,
   siJira,
   siKubernetes,
+  siPostgresql,
   siTailwindcss,
 } from 'simple-icons';
 
@@ -140,6 +135,7 @@ import mongoDBLogo from '@/assets/logos/mongodb-svgrepo-com.svg';
 import swaggerLogo from '@/assets/logos/swagger.svg';
 import materialUiLogo from '@/assets/logos/material-ui.svg';
 import jenkinsLogo from '@/assets/logos/jenkins.svg';
+import microsoftTeamsLogo from '@/assets/logos/microsoft-teams.svg';
 
 const categories = [
   { id: 'all', label: 'Toutes' },
@@ -174,6 +170,8 @@ const skills = [
   { name: 'Apache Kafka', icon: siApachekafka, usage: 'Événementiel', categories: ['backend', 'devops'] },
 
   { name: 'MySQL', logo: mysqlLogo, usage: 'Base relationnelle', categories: ['data'] },
+  { name: 'PostgreSQL', icon: siPostgresql, usage: 'Base relationnelle', categories: ['data'] },
+  { name: 'pgvector', icon: siPostgresql, usage: 'Recherche vectorielle', categories: ['data'] },
   { name: 'SQLite', logo: sqliteLogo, usage: 'Base embarquée', categories: ['data'] },
   { name: 'MongoDB', logo: mongoDBLogo, usage: 'Base documentaire', categories: ['data'] },
 
@@ -194,7 +192,7 @@ const skills = [
   { name: 'Swagger', logo: swaggerLogo, usage: 'Documentation API', categories: ['tools'] },
 
   { name: 'Jira', icon: siJira, usage: 'Suivi de projet', categories: ['collaboration'] },
-  { name: 'Microsoft Teams', monogram: 'T', usage: 'Communication', categories: ['collaboration'] },
+  { name: 'Microsoft Teams', logo: microsoftTeamsLogo, usage: 'Communication', categories: ['collaboration'] },
   { name: 'Trello', logo: trelloLogo, usage: 'Organisation', categories: ['collaboration'] },
   { name: 'Slack', logo: slackLogo, usage: 'Communication', categories: ['collaboration'] },
   { name: 'Figma', logo: figmaLogo, usage: 'Conception UI', categories: ['collaboration'] },
@@ -406,20 +404,6 @@ const skillCount = (categoryId) => {
     brightness(101%)
     contrast(104%)
     drop-shadow(0 0 8px rgba(0, 212, 255, 0.35));
-}
-
-.skill-monogram {
-  display: grid;
-  place-items: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  color: #111325;
-  background: currentColor;
-  font-size: 1.15rem;
-  font-weight: 900;
-  line-height: 1;
-  box-shadow: 9px -7px 0 -5px #00d4ff, 12px 7px 0 -7px #7c3aed;
 }
 
 .featured-card strong,
