@@ -4,7 +4,7 @@
       <span class="projects-eyebrow">Sélection de projets</span>
       <h2 id="projects-title">Concevoir, structurer, livrer</h2>
       <p>
-        Trois applications full-stack retravaillées pour mettre en valeur ma démarche,
+        Quatre applications full-stack retravaillées pour mettre en valeur ma démarche,
         mes choix techniques et la qualité de leur mise en œuvre.
       </p>
     </div>
@@ -202,6 +202,36 @@ const rawImage = (repository, filename) =>
   `https://raw.githubusercontent.com/Maxwell49000/${repository}/main/docs/screenshots/${filename}`;
 
 const projects = [
+  {
+    slug: 'trame',
+    title: 'Trame',
+    type: 'Éditeur de sites one-page',
+    year: '2026',
+    accent: '#a78bfa',
+    accentRgb: '167, 139, 250',
+    summary: 'Un atelier visuel pour composer, prévisualiser et exporter des sites one-page autonomes.',
+    description:
+      'Trame accompagne toute la création d’un site one-page, du choix d’un modèle à l’export d’un ZIP HTML/CSS prêt à héberger, avec un aperçu responsive en temps réel.',
+    need: 'Permettre de créer rapidement une page soignée sans écrire de code ni dépendre d’une plateforme d’hébergement propriétaire.',
+    challenge: 'Réunir édition visuelle, génération statique, isolation des projets et sécurité des comptes dans une expérience simple et cohérente.',
+    demonstrates: 'Une application SaaS full-stack, une génération de sites statiques maîtrisée et une architecture sécurisée, testée et conteneurisée.',
+    technologies: ['Vue 3', 'Quasar', 'Node.js', 'Express', 'Prisma', 'MySQL', 'Zod', 'Docker', 'GitHub Actions'],
+    features: [
+      'Création depuis une page vierge ou un modèle portfolio/studio',
+      'Éditeur de sections avec aperçu mobile et desktop en direct',
+      'Personnalisation du thème, du SEO, de l’en-tête et du pied de page',
+      'Génération d’un ZIP HTML/CSS autonome prêt à héberger',
+      'Sessions sécurisées, rôles et isolation des projets par propriétaire',
+    ],
+    github: 'https://github.com/Maxwell49000/Trame',
+    images: [
+      { src: rawImage('Trame', 'editor-desktop-preview.png'), alt: 'Éditeur Trame avec aperçu desktop' },
+      { src: rawImage('Trame', 'dashboard.png'), alt: 'Tableau de bord des projets dans Trame' },
+      { src: rawImage('Trame', 'editor-mobile-preview.png'), alt: 'Éditeur Trame avec aperçu mobile' },
+      { src: rawImage('Trame', 'presentation-mobile.png'), alt: 'Présentation mobile d’un site créé avec Trame', mobile: true },
+      { src: rawImage('Trame', 'login.png'), alt: 'Page de connexion de Trame' },
+    ],
+  },
   {
     slug: 'sillage',
     title: 'Sillage',
