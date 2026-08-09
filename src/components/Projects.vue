@@ -14,6 +14,10 @@
         v-for="(project, index) in projects"
         :key="project.slug"
         class="project-card"
+        :style="{
+          '--project-accent': project.accent,
+          '--project-accent-rgb': project.accentRgb,
+        }"
         :data-aos="'fade-up'"
         :data-aos-delay="100 + index * 100"
       >
@@ -77,6 +81,10 @@
             class="project-dialog"
             role="dialog"
             aria-modal="true"
+            :style="{
+              '--project-accent': activeProject.accent,
+              '--project-accent-rgb': activeProject.accentRgb,
+            }"
             :aria-labelledby="`${activeProject.slug}-dialog-title`"
           >
             <button
@@ -184,6 +192,8 @@ const projects = [
     title: 'Sillage',
     type: 'Assistant documentaire & RAG',
     year: '2026',
+    accent: '#58cfc2',
+    accentRgb: '88, 207, 194',
     summary: 'Un assistant local qui transforme des documents en base de connaissances interrogeable.',
     description:
       'Sillage extrait, fragmente et vectorise des documents pour produire des réponses contextualisées avec une architecture RAG entièrement locale.',
@@ -196,9 +206,9 @@ const projects = [
     ],
     github: 'https://github.com/Maxwell49000/Sillage',
     images: [
-      { src: rawImage('Sillage', 'sillage-home-desktop.png'), alt: 'Accueil de l’application Sillage' },
-      { src: rawImage('Sillage', 'sillage-sources-modal.png'), alt: 'Gestion des sources documentaires dans Sillage' },
       { src: rawImage('Sillage', 'sillage-conversation-desktop.png'), alt: 'Conversation contextualisée dans Sillage' },
+      { src: rawImage('Sillage', 'sillage-sources-modal.png'), alt: 'Gestion des sources documentaires dans Sillage' },
+      { src: rawImage('Sillage', 'sillage-home-desktop.png'), alt: 'Accueil de l’application Sillage' },
       { src: rawImage('Sillage', 'sillage-home-mobile.png'), alt: 'Accueil mobile de Sillage', mobile: true },
     ],
   },
@@ -207,6 +217,8 @@ const projects = [
     title: 'Learning Tracker',
     type: 'Plateforme e-learning',
     year: '2026',
+    accent: '#f06a4f',
+    accentRgb: '240, 106, 79',
     summary: 'Une plateforme complète pour organiser des cours et suivre précisément sa progression.',
     description:
       'Learning Tracker réunit catalogue pédagogique, suivi d’avancement et administration dans une application sécurisée pensée pour une utilisation fluide sur tous les écrans.',
@@ -219,10 +231,10 @@ const projects = [
     ],
     github: 'https://github.com/Maxwell49000/Learning-tracker',
     images: [
-      { src: rawImage('Learning-tracker', 'LearningTracker-accueil-desktop.png'), alt: 'Accueil de Learning Tracker' },
       { src: rawImage('Learning-tracker', '02-parcours-desktop.png'), alt: 'Catalogue des parcours de Learning Tracker' },
       { src: rawImage('Learning-tracker', '03-detail-cours-desktop.png'), alt: 'Détail d’un cours dans Learning Tracker' },
       { src: rawImage('Learning-tracker', '04-administration-desktop.png'), alt: 'Administration de Learning Tracker' },
+      { src: rawImage('Learning-tracker', 'LearningTracker-accueil-desktop.png'), alt: 'Accueil de Learning Tracker' },
     ],
   },
   {
@@ -230,6 +242,8 @@ const projects = [
     title: 'Konnekt',
     type: 'Réseau professionnel',
     year: '2026',
+    accent: '#62c891',
+    accentRgb: '98, 200, 145',
     summary: 'Un réseau social professionnel full-stack avec interactions et messagerie en temps réel.',
     description:
       'Konnekt propose profils, publications, connexions et conversations au sein d’une architecture full-stack associant données relationnelles et documentaires.',
@@ -242,9 +256,9 @@ const projects = [
     ],
     github: 'https://github.com/Maxwell49000/Konnekt',
     images: [
-      { src: rawImage('Konnekt', '01-login.png'), alt: 'Connexion à la plateforme Konnekt' },
       { src: rawImage('Konnekt', '02-feed.png'), alt: 'Fil d’actualité de Konnekt' },
       { src: rawImage('Konnekt', '03-profile.png'), alt: 'Profil professionnel dans Konnekt' },
+      { src: rawImage('Konnekt', '01-login.png'), alt: 'Connexion à la plateforme Konnekt' },
     ],
   },
 ];
@@ -351,12 +365,14 @@ onUnmounted(() => {
 }
 
 .project-card {
+  --project-accent: #00d4ff;
+  --project-accent-rgb: 0, 212, 255;
   position: relative;
   display: flex;
   min-width: 0;
   flex-direction: column;
   overflow: hidden;
-  border: 1px solid rgba(0, 212, 255, 0.18);
+  border: 1px solid rgba(var(--project-accent-rgb), 0.26);
   border-radius: 16px;
   background: rgba(7, 12, 29, 0.58);
   box-shadow: 0 10px 28px rgba(0, 0, 0, 0.22);
@@ -365,8 +381,8 @@ onUnmounted(() => {
 
 .project-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(0, 212, 255, 0.48);
-  box-shadow: 0 18px 38px rgba(0, 212, 255, 0.1);
+  border-color: rgba(var(--project-accent-rgb), 0.68);
+  box-shadow: 0 18px 38px rgba(var(--project-accent-rgb), 0.13);
 }
 
 .project-visual {
@@ -387,7 +403,9 @@ onUnmounted(() => {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(5, 8, 22, 0.88));
+  background:
+    linear-gradient(180deg, transparent 45%, rgba(5, 8, 22, 0.9)),
+    linear-gradient(135deg, rgba(var(--project-accent-rgb), 0.08), transparent 45%);
   pointer-events: none;
 }
 
@@ -409,7 +427,7 @@ onUnmounted(() => {
   z-index: 1;
   top: 1rem;
   left: 1rem;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--project-accent);
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.16em;
@@ -448,7 +466,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  color: #00d4ff;
+  color: var(--project-accent, #00d4ff);
   font-size: 0.69rem;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -489,15 +507,15 @@ onUnmounted(() => {
 .project-stack li,
 .dialog-stack li {
   padding: 0.35rem 0.65rem;
-  border: 1px solid rgba(0, 212, 255, 0.2);
+  border: 1px solid rgba(var(--project-accent-rgb, 0, 212, 255), 0.26);
   border-radius: 999px;
   color: rgba(255, 255, 255, 0.76);
-  background: rgba(0, 212, 255, 0.07);
+  background: rgba(var(--project-accent-rgb, 0, 212, 255), 0.07);
   font-size: 0.72rem;
 }
 
 .project-stack .stack-more {
-  color: #00d4ff;
+  color: var(--project-accent);
 }
 
 .project-actions {
@@ -529,7 +547,7 @@ onUnmounted(() => {
 .project-details span,
 .project-github span,
 .dialog-github span {
-  color: #00d4ff;
+  color: var(--project-accent, #00d4ff);
   transition: transform 0.2s ease;
 }
 
@@ -571,10 +589,10 @@ onUnmounted(() => {
   width: min(1120px, 100%);
   max-height: calc(100vh - 4rem);
   overflow: hidden;
-  border: 1px solid rgba(0, 212, 255, 0.28);
+  border: 1px solid rgba(var(--project-accent-rgb), 0.38);
   border-radius: 20px;
   background: #0d1023;
-  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55), 0 0 50px rgba(0, 212, 255, 0.08);
+  box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55), 0 0 50px rgba(var(--project-accent-rgb), 0.1);
   font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -669,8 +687,8 @@ onUnmounted(() => {
 
 .gallery-arrow:hover,
 .gallery-arrow:focus-visible {
-  border-color: #00d4ff;
-  color: #00d4ff;
+  border-color: var(--project-accent);
+  color: var(--project-accent);
 }
 
 .gallery-arrow--previous { left: 0.8rem; }
@@ -698,8 +716,8 @@ onUnmounted(() => {
 }
 
 .gallery-thumbnails button.active {
-  border-color: #00d4ff;
-  box-shadow: 0 0 14px rgba(0, 212, 255, 0.2);
+  border-color: var(--project-accent);
+  box-shadow: 0 0 14px rgba(var(--project-accent-rgb), 0.2);
   opacity: 1;
 }
 
@@ -742,7 +760,7 @@ onUnmounted(() => {
 .dialog-label {
   display: block;
   margin-bottom: 0.9rem;
-  color: #00d4ff;
+  color: var(--project-accent);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -773,8 +791,8 @@ onUnmounted(() => {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #00d4ff;
-  box-shadow: 0 0 8px rgba(0, 212, 255, 0.65);
+  background: var(--project-accent);
+  box-shadow: 0 0 8px rgba(var(--project-accent-rgb), 0.65);
 }
 
 .dialog-github {
@@ -783,18 +801,18 @@ onUnmounted(() => {
   gap: 0.5rem;
   margin-top: 2rem;
   padding: 0.8rem 1rem;
-  border: 1px solid rgba(0, 212, 255, 0.38);
+  border: 1px solid rgba(var(--project-accent-rgb), 0.42);
   border-radius: 9px;
   color: #fff;
-  background: rgba(0, 212, 255, 0.08);
+  background: rgba(var(--project-accent-rgb), 0.08);
   font-size: 0.84rem;
   font-weight: 700;
   text-decoration: none;
 }
 
 .dialog-github:hover {
-  border-color: #00d4ff;
-  background: rgba(0, 212, 255, 0.13);
+  border-color: var(--project-accent);
+  background: rgba(var(--project-accent-rgb), 0.13);
 }
 
 .project-dialog-enter-active,
