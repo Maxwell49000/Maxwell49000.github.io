@@ -42,7 +42,7 @@ const menuOpen = ref(false);
 <style scoped>
 header {
   padding: 1rem 2rem;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   color: #fff;
   box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1);
   border-bottom: 1px solid rgba(0, 212, 255, 0.2);
@@ -119,8 +119,8 @@ nav ul {
 }
 
 nav ul li a {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1rem;
+  color: var(--text-strong);
+  font-size: 0.95rem;
   text-decoration: none;
   transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
   position: relative;

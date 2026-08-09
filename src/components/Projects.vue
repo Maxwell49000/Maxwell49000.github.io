@@ -349,7 +349,7 @@ onUnmounted(() => {
     linear-gradient(180deg, rgba(26, 26, 46, 0.66), rgba(20, 20, 38, 0.82));
   box-sizing: border-box;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
 }
 
 .projects-heading {
@@ -360,7 +360,7 @@ onUnmounted(() => {
 
 .projects-eyebrow {
   color: #00d4ff;
-  font-size: 0.78rem;
+  font-size: var(--font-size-eyebrow);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -371,14 +371,14 @@ onUnmounted(() => {
   background: linear-gradient(135deg, #00d4ff, #7c3aed);
   background-clip: text;
   color: transparent;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: var(--font-size-section-title);
   line-height: 1.2;
 }
 
 .projects-heading p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 1.05rem;
+  color: var(--text-secondary);
+  font-size: var(--font-size-section-intro);
   line-height: 1.75;
 }
 
@@ -508,7 +508,7 @@ onUnmounted(() => {
 .project-content > p {
   min-height: 4.8rem;
   margin: 0 0 1.15rem;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--text-secondary);
   font-size: 0.91rem;
   line-height: 1.65;
   text-align: left;
@@ -583,12 +583,12 @@ onUnmounted(() => {
 }
 
 .project-github {
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--text-muted);
 }
 
 .projects-note {
   margin: 2rem 0 0;
-  color: rgba(255, 255, 255, 0.52);
+  color: var(--text-subtle);
   font-size: 0.82rem;
   text-align: center;
 }
@@ -617,7 +617,7 @@ onUnmounted(() => {
   border-radius: 20px;
   background: #0d1023;
   box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55), 0 0 50px rgba(var(--project-accent-rgb), 0.1);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
 }
 
 .dialog-close {
@@ -774,7 +774,7 @@ onUnmounted(() => {
 
 .dialog-lead {
   margin: 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-secondary);
   font-size: 0.96rem;
   line-height: 1.72;
 }
@@ -804,7 +804,7 @@ onUnmounted(() => {
 
 .project-story p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.66);
+  color: var(--text-muted);
   font-size: 0.8rem;
   line-height: 1.55;
 }
@@ -830,7 +830,7 @@ onUnmounted(() => {
   gap: 0.7rem;
   margin: 0;
   padding: 0;
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--text-secondary);
   font-size: 0.86rem;
   line-height: 1.5;
   list-style: none;

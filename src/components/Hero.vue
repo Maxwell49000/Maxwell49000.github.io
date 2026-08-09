@@ -89,7 +89,7 @@ onUnmounted(() => globalThis.removeEventListener('mousemove', handleMouseMove));
   overflow: hidden;
   background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 50%, #16213e 100%);
   padding: 2rem;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-sans);
 }
 
 /* Animated background */
@@ -159,7 +159,7 @@ onUnmounted(() => globalThis.removeEventListener('mousemove', handleMouseMove));
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: var(--font-size-display);
   font-weight: 900;
   line-height: 1.2;
   margin: 0;
@@ -172,8 +172,8 @@ onUnmounted(() => globalThis.removeEventListener('mousemove', handleMouseMove));
 
 .greeting {
   display: block;
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1rem;
+  color: var(--text-strong);
   text-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
   margin-bottom: 0.5rem;
   animation: fadeIn 0.8s ease-out;
@@ -216,7 +216,7 @@ onUnmounted(() => globalThis.removeEventListener('mousemove', handleMouseMove));
 }
 
 .hero-subtitle {
-  font-size: 1.8rem;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
   color: #fff;
   margin: 0;
   min-height: 2.5rem;
@@ -231,7 +231,8 @@ onUnmounted(() => globalThis.removeEventListener('mousemove', handleMouseMove));
 .typing-effect {
   color: #00d4ff;
   font-weight: 600;
-  font-family: 'Courier New', monospace;
+  font-family: inherit;
+  letter-spacing: 0.025em;
 }
 
 .cursor {
@@ -252,9 +253,9 @@ onUnmounted(() => globalThis.removeEventListener('mousemove', handleMouseMove));
 }
 
 .hero-description {
-  font-size: 1.2rem;
-  color: rgba(255, 255, 255, 0.8);
-  max-width: 600px;
+  font-size: var(--font-size-section-intro);
+  color: var(--text-secondary);
+  max-width: 680px;
   line-height: 1.6;
   margin: 1rem 0 0 0;
   animation: slideUp 0.8s ease-out 0.2s both;

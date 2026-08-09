@@ -1,7 +1,10 @@
 <template>
   <section class="contact" data-aos="fade-up" data-aos-duration="1000">
-    <h2>Contactez-moi</h2>
-    <p>Vous souhaitez échanger ? Contactez-moi par e-mail, téléphone ou via mes réseaux.</p>
+    <div class="contact-heading">
+      <span class="contact-eyebrow">Me contacter</span>
+      <h2>Échangeons</h2>
+      <p>Vous souhaitez échanger ? Contactez-moi par e-mail, téléphone ou via mes réseaux.</p>
+    </div>
 
     <div class="contact-details">
       <div 
@@ -52,7 +55,7 @@ const cvPath = ref("/Cv.pdf");
   text-align: center;
   transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   box-sizing: border-box;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
 }
 
 .contact:hover {
@@ -61,22 +64,37 @@ const cvPath = ref("/Cv.pdf");
   transform: translateY(-4px);
 }
 
+.contact-heading {
+  max-width: 720px;
+  margin: 0 auto 2.5rem;
+}
+
+.contact-eyebrow {
+  display: block;
+  color: var(--primary);
+  font-size: var(--font-size-eyebrow);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 .contact h2 {
-  font-size: 2.5rem;
+  margin: 0.45rem 0 1rem;
+  font-size: var(--font-size-section-title);
   font-weight: 700;
   background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  margin-bottom: 1.5rem;
   position: relative;
   display: inline-block;
 }
 
-.contact p {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 2rem;
+.contact-heading p {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: var(--font-size-section-intro);
+  line-height: 1.7;
   font-weight: 400;
 }
 
@@ -163,7 +181,7 @@ const cvPath = ref("/Cv.pdf");
 
 .detail-item a {
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   transition: all 0.3s ease;
   font-weight: 500;
   position: relative;
@@ -236,11 +254,7 @@ const cvPath = ref("/Cv.pdf");
     margin: 3rem auto;
   }
 
-  .contact h2 {
-    font-size: 2rem;
-  }
-
-  .contact p {
+  .contact-heading p {
     font-size: 1rem;
   }
 
@@ -267,11 +281,7 @@ const cvPath = ref("/Cv.pdf");
     margin: 2rem auto;
   }
 
-  .contact h2 {
-    font-size: 1.5rem;
-  }
-
-  .contact p {
+  .contact-heading p {
     font-size: 0.95rem;
   }
 

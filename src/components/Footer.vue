@@ -3,7 +3,7 @@
     <div class="footer-container">
       <div class="footer-info">
         <h3>Axel Paillard</h3>
-        <p>Développeur web, attentif à la qualité et à la maintenabilité du code.</p>
+        <p>Développeur full-stack, attentif à la qualité et à la maintenabilité du code.</p>
       </div>
 
       <div class="footer-links">
@@ -51,14 +51,17 @@ footer {
   background: linear-gradient(135deg, rgba(15, 15, 30, 0.95) 0%, rgba(26, 26, 46, 0.95) 100%);
   color: #fff;
   padding: 2rem 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--font-sans);
   border-top: 1px solid rgba(0, 212, 255, 0.2);
 }
 
 .footer-container {
   display: flex;
   justify-content: space-between;
-  padding: 0 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
   flex-wrap: wrap;
 }
 
@@ -68,7 +71,7 @@ footer {
 }
 
 .footer-info h3 {
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -78,8 +81,9 @@ footer {
 }
 
 .footer-info p {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
 }
 
 .footer-links {
@@ -88,7 +92,7 @@ footer {
 }
 
 .footer-links h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #00d4ff;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -104,9 +108,9 @@ footer {
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 0.92rem;
   transition: all 0.3s ease;
 }
 
@@ -121,7 +125,7 @@ footer {
 }
 
 .footer-socials h4 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: #00d4ff;
   margin-bottom: 1rem;
   font-weight: 600;
@@ -133,7 +137,7 @@ footer {
 }
 
 .social-icons a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   font-size: 1.5rem;
   transition: all 0.3s ease;
 }
@@ -150,7 +154,7 @@ footer {
 
 .footer-bottom p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-muted);
 }
 
 /* -------- Responsive -------- */

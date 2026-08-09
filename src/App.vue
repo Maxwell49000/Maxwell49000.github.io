@@ -43,11 +43,22 @@ body {
   background-color: #0f0f1e;
   color: #fff;
   overflow-x: hidden;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 /* === COLOR SCHEME === */
 :root {
+  --font-sans: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-display: clamp(2.4rem, 6vw, 4rem);
+  --font-size-section-title: clamp(2rem, 5vw, 2.5rem);
+  --font-size-section-intro: 1.05rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.84rem;
+  --font-size-eyebrow: 0.75rem;
   --primary: #00d4ff;
   --primary-dark: #0099cc;
   --secondary: #7c3aed;
@@ -56,8 +67,10 @@ body {
   --bg-lighter: #1a1a2e;
   --bg-card: #252525;
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.8);
-  --text-muted: rgba(255, 255, 255, 0.5);
+  --text-strong: rgba(255, 255, 255, 0.92);
+  --text-secondary: rgba(255, 255, 255, 0.74);
+  --text-muted: rgba(255, 255, 255, 0.58);
+  --text-subtle: rgba(255, 255, 255, 0.48);
   --border: rgba(0, 212, 255, 0.2);
   --shadow: 0 8px 32px rgba(0, 212, 255, 0.1);
 }
@@ -159,145 +172,5 @@ body.modal-open * {
 .dark-mode header {
   background: rgba(26, 26, 46, 0.85);
   color: var(--text-primary);
-}
-
-.dark-mode .logo h1 {
-  background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.dark-mode nav ul li a {
-  color: var(--text-secondary);
-  transition: all 0.3s ease;
-}
-
-.dark-mode nav ul li a:hover {
-  color: var(--primary);
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-}
-
-/* === SECTIONS STYLING === */
-.dark-mode section {
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(37, 37, 55, 0.3) 100%);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.dark-mode section:hover {
-  border-color: rgba(0, 212, 255, 0.4);
-  box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
-  transform: translateY(-2px);
-}
-
-.dark-mode section h2 {
-  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.dark-mode section p {
-  color: var(--text-secondary);
-}
-
-/* === PROJECT CARDS === */
-.dark-mode .project-card {
-  background: linear-gradient(135deg, rgba(37, 37, 55, 0.8) 0%, rgba(26, 26, 46, 0.5) 100%);
-  border: 1px solid var(--border);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.dark-mode .project-card:hover {
-  border-color: rgba(0, 212, 255, 0.6);
-  box-shadow: 0 16px 48px rgba(0, 212, 255, 0.2);
-  transform: translateY(-8px);
-}
-
-.dark-mode .project-card h3 {
-  color: var(--primary);
-}
-
-.dark-mode .project-card p {
-  color: var(--text-secondary);
-}
-
-.dark-mode .stack span {
-  background: rgba(0, 212, 255, 0.15);
-  border: 1px solid rgba(0, 212, 255, 0.3);
-  color: var(--primary);
-  transition: all 0.3s ease;
-}
-
-.dark-mode .stack span:hover {
-  background: rgba(0, 212, 255, 0.3);
-  box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
-}
-
-/* === CONTACT SECTION === */
-.dark-mode .contact {
-  background: linear-gradient(180deg, rgba(26, 26, 46, 0.5) 0%, rgba(37, 37, 55, 0.3) 100%);
-}
-
-.dark-mode .detail-item {
-  background: rgba(0, 212, 255, 0.05);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.dark-mode .detail-item:hover {
-  background: rgba(0, 212, 255, 0.1);
-  border-color: rgba(0, 212, 255, 0.5);
-  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.15);
-}
-
-.dark-mode .detail-item i {
-  color: var(--primary);
-}
-
-.dark-mode .detail-item a {
-  color: var(--text-secondary);
-}
-
-.dark-mode .detail-item:hover a {
-  color: var(--primary);
-}
-
-/* === SKILLS SECTION === */
-.dark-mode .skill-item {
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
-  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  border-radius: 12px;
-}
-
-.dark-mode .skill-item:hover {
-  background: rgba(0, 212, 255, 0.15);
-  border-color: rgba(0, 212, 255, 0.5);
-  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.2);
-  transform: translateY(-6px);
-}
-
-/* === GENERAL LINKS === */
-.dark-mode a {
-  color: var(--primary);
-  transition: all 0.3s ease;
-}
-
-.dark-mode a:hover {
-  color: var(--secondary);
-  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .dark-mode section {
-    margin-left: auto;
-    margin-right: auto;
-    width: 95%;
-  }
 }
 </style>

@@ -235,7 +235,7 @@ const skillCount = (categoryId) => {
     linear-gradient(180deg, rgba(26, 26, 46, 0.66), rgba(20, 20, 38, 0.82));
   border: 1px solid rgba(0, 212, 255, 0.2);
   border-radius: 20px;
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
   box-sizing: border-box;
   overflow: hidden;
@@ -250,7 +250,7 @@ const skillCount = (categoryId) => {
 .skills-eyebrow,
 .section-kicker {
   color: #00d4ff;
-  font-size: 0.78rem;
+  font-size: var(--font-size-eyebrow);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -258,7 +258,7 @@ const skillCount = (categoryId) => {
 
 .skills h2 {
   margin: 0.45rem 0 1rem;
-  font-size: 2.5rem;
+  font-size: var(--font-size-section-title);
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: normal;
@@ -270,8 +270,8 @@ const skillCount = (categoryId) => {
 
 .skills .skills-intro {
   margin: 0;
-  color: rgba(255, 255, 255, 0.85);
-  font-size: 1.1rem;
+  color: var(--text-secondary);
+  font-size: var(--font-size-section-intro);
   line-height: 1.8;
 }
 
@@ -306,7 +306,7 @@ const skillCount = (categoryId) => {
 .section-heading p {
   max-width: 680px;
   margin: 0;
-  color: rgba(255, 255, 255, 0.58);
+  color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.55;
   text-align: left;
@@ -417,7 +417,7 @@ const skillCount = (categoryId) => {
 .featured-card > span:last-child,
 .skill-usage {
   margin-top: 0.35rem;
-  color: rgba(255, 255, 255, 0.52);
+  color: var(--text-subtle);
   font-size: 0.76rem;
   line-height: 1.35;
   text-align: center;
@@ -438,7 +438,7 @@ const skillCount = (categoryId) => {
   padding: 0.55rem 0.85rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   background: rgba(255, 255, 255, 0.035);
   font: inherit;
   font-size: 0.82rem;
@@ -454,7 +454,7 @@ const skillCount = (categoryId) => {
   height: 22px;
   padding: 0 0.25rem;
   border-radius: 999px;
-  color: rgba(255, 255, 255, 0.62);
+  color: var(--text-muted);
   background: rgba(255, 255, 255, 0.08);
   font-size: 0.7rem;
 }

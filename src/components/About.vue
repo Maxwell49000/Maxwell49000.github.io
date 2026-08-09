@@ -65,7 +65,7 @@
     linear-gradient(180deg, rgba(26, 26, 46, 0.66), rgba(20, 20, 38, 0.82));
   box-sizing: border-box;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.22);
-  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: var(--font-sans);
 }
 
 .about-heading {
@@ -75,7 +75,7 @@
 
 .about-eyebrow {
   color: #00d4ff;
-  font-size: 0.78rem;
+  font-size: var(--font-size-eyebrow);
   font-weight: 700;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -86,7 +86,7 @@
   background: linear-gradient(135deg, #00d4ff, #7c3aed);
   background-clip: text;
   color: transparent;
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: var(--font-size-section-title);
   line-height: 1.2;
 }
 
@@ -103,13 +103,13 @@
 
 .about-story p {
   margin: 0 0 1.25rem;
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 1rem;
+  color: var(--text-secondary);
+  font-size: var(--font-size-body);
   line-height: 1.8;
 }
 
 .about-story .about-intro {
-  color: rgba(255, 255, 255, 0.92);
+  color: var(--text-strong);
   font-size: 1.2rem;
   font-weight: 500;
 }
@@ -156,8 +156,8 @@
 
 .approach p {
   margin: 0;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 0.84rem;
+  color: var(--text-muted);
+  font-size: var(--font-size-small);
   line-height: 1.55;
 }
 
