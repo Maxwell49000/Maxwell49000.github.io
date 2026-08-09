@@ -616,8 +616,6 @@ onUnmounted(() => {
   overflow-x: hidden;
   overflow-y: auto;
   overscroll-behavior: contain;
-  scrollbar-color: rgba(var(--project-accent-rgb), 0.55) rgba(255, 255, 255, 0.05);
-  scrollbar-width: thin;
   border: 1px solid rgba(var(--project-accent-rgb), 0.38);
   border-radius: 20px;
   background: #0d1023;
@@ -625,8 +623,21 @@ onUnmounted(() => {
   font-family: var(--font-sans);
 }
 
+@supports not selector(::-webkit-scrollbar) {
+  .project-dialog {
+    scrollbar-color: rgba(var(--project-accent-rgb), 0.55) rgba(255, 255, 255, 0.05);
+    scrollbar-width: thin;
+  }
+}
+
 .project-dialog::-webkit-scrollbar {
   width: 8px;
+}
+
+.project-dialog::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
 }
 
 .project-dialog::-webkit-scrollbar-track {
